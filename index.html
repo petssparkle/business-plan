@@ -7,8 +7,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #0b1020;
-    --bg-soft: #111733;
     --panel: #ffffff;
     --panel-soft: #f6f8fc;
     --border: #e6e8ef;
@@ -19,13 +17,12 @@
     --accent: #f97316;
     --accent-2: #10b981;
     --warn: #ef4444;
-    --gold: #f59e0b;
     --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-    --radius: 14px;
+    --radius: 12px;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.55; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 36px 24px 70px; }
+  html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 22px 60px; }
 
   .hero {
     position: relative;
@@ -33,63 +30,60 @@
                 radial-gradient(900px 500px at 100% 20%, rgba(249,115,22,0.18), transparent 60%),
                 linear-gradient(135deg, #0b1020 0%, #111733 60%, #1e3a8a 120%);
     color: white;
-    border-radius: 24px;
-    padding: 48px 44px;
+    border-radius: 20px;
+    padding: 40px 38px;
     box-shadow: var(--shadow);
-    overflow: hidden;
   }
-  .hero h1 { font-size: 40px; line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.02em; }
+  .hero h1 { font-size: 36px; line-height: 1.1; margin: 0 0 8px; letter-spacing: -0.02em; }
   .hero h1 span { background: linear-gradient(90deg, #38bdf8, #f97316); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .hero p.lead { font-size: 17px; max-width: 760px; color: #cbd5e1; margin: 0 0 22px; }
-  .hero .meta { display: flex; flex-wrap: wrap; gap: 22px; color: #cbd5e1; font-size: 13.5px; }
+  .hero p.lead { font-size: 16px; max-width: 720px; color: #cbd5e1; margin: 0 0 18px; }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: 18px; color: #cbd5e1; font-size: 13px; }
   .hero .meta strong { color: white; }
-  .pill { display: inline-block; padding: 5px 11px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; color: #e2e8f0; }
+  .pill { display: inline-block; padding: 5px 11px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; color: #e2e8f0; }
 
-  section { margin-top: 48px; }
-  h2 { font-size: 26px; margin: 0 0 6px; letter-spacing: -0.01em; color: var(--text); }
-  h2 .num { display: inline-block; min-width: 34px; height: 34px; line-height: 34px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 9px; font-size: 14px; margin-right: 12px; vertical-align: middle; font-weight: 700; }
-  h3 { font-size: 18px; margin: 18px 0 6px; color: var(--text); }
-  h4 { font-size: 13px; margin: 14px 0 4px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
-  p { color: var(--muted); margin: 6px 0; }
-  .section-sub { color: var(--muted); font-size: 14.5px; margin-bottom: 18px; max-width: 880px; }
+  section { margin-top: 38px; }
+  h2 { font-size: 22px; margin: 0 0 4px; letter-spacing: -0.01em; color: var(--text); }
+  h2 .num { display: inline-block; min-width: 30px; height: 30px; line-height: 30px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 8px; font-size: 13px; margin-right: 10px; vertical-align: middle; font-weight: 700; }
+  h3 { font-size: 16px; margin: 14px 0 4px; color: var(--text); }
+  h4 { font-size: 12.5px; margin: 12px 0 4px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  p { color: var(--muted); margin: 5px 0; font-size: 14px; }
+  .section-sub { color: var(--muted); font-size: 14px; margin-bottom: 14px; max-width: 880px; }
 
-  .grid { display: grid; gap: 18px; }
+  .grid { display: grid; gap: 14px; }
   .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
   @media (max-width: 900px) {
     .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    .hero { padding: 32px 22px; }
-    .hero h1 { font-size: 28px; }
-    .wrap { padding: 20px 14px 50px; }
+    .hero { padding: 28px 20px; border-radius: 16px; }
+    .hero h1 { font-size: 24px; }
+    .wrap { padding: 18px 12px 40px; }
   }
 
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
   .card.dark { background: linear-gradient(135deg, #111733, #1e293b); color: #e2e8f0; border: none; }
   .card.dark p, .card.dark li { color: #cbd5e1; }
-  .card.flat { box-shadow: none; }
 
-  .kpi { display: flex; flex-direction: column; gap: 3px; padding: 16px; }
-  .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-  .kpi .value { font-size: 26px; font-weight: 700; color: var(--text); }
-  .kpi .delta { font-size: 12.5px; color: var(--accent-2); font-weight: 600; }
+  .kpi { display: flex; flex-direction: column; gap: 2px; padding: 14px; }
+  .kpi .label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+  .kpi .value { font-size: 24px; font-weight: 800; color: var(--text); line-height: 1.1; }
+  .kpi .delta { font-size: 12px; color: var(--accent-2); font-weight: 600; }
   .kpi.brand .value { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .kpi.accent .value { color: var(--accent); }
 
-  ul.clean { list-style: none; padding-left: 0; margin: 4px 0; }
-  ul.clean li { position: relative; padding: 5px 0 5px 20px; color: var(--muted); font-size: 14px; }
-  ul.clean li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
+  ul.clean { list-style: none; padding-left: 0; margin: 3px 0; }
+  ul.clean li { position: relative; padding: 4px 0 4px 18px; color: var(--muted); font-size: 13.5px; }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: 11px; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
 
-  /* Month rows — compact */
   .month-row {
     display: grid;
-    grid-template-columns: 120px 1fr 90px;
-    gap: 16px;
+    grid-template-columns: 110px 1fr 90px;
+    gap: 14px;
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-    margin-top: 10px;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 8px;
     box-shadow: var(--shadow);
     position: relative;
     overflow: hidden;
@@ -101,103 +95,102 @@
   .month-row.launch::before { background: linear-gradient(180deg, #f97316, #f59e0b); }
   .month-row.scale::before { background: linear-gradient(180deg, #ef4444, #f97316); }
   @media (max-width: 768px) {
-    .month-row { grid-template-columns: 1fr; padding: 14px 16px; gap: 6px; }
+    .month-row { grid-template-columns: 1fr; padding: 12px 14px; gap: 4px; }
   }
-  .month-row .when { font-weight: 700; font-size: 13px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.04em; }
-  .month-row .what { font-size: 14px; color: var(--text); }
-  .month-row .what strong { color: var(--text); }
-  .month-row .what .sub { color: var(--muted); font-size: 13px; margin-top: 4px; display: block; }
-  .month-row .goal { text-align: right; font-weight: 700; color: var(--accent); font-size: 14px; }
+  .month-row .when { font-weight: 700; font-size: 12px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.05em; }
+  .month-row .what { font-size: 13.5px; color: var(--text); }
+  .month-row .what strong { color: var(--text); font-size: 14px; }
+  .month-row .what .sub { color: var(--muted); font-size: 12.5px; margin-top: 2px; display: block; }
+  .month-row .goal { text-align: right; font-weight: 700; color: var(--accent); font-size: 13.5px; }
   @media (max-width: 768px) { .month-row .goal { text-align: left; } }
 
   table.tbl { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-  table.tbl th, table.tbl td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
-  table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em; }
+  table.tbl th, table.tbl td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+  table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
   table.tbl tr:last-child td { border-bottom: none; }
-  table.tbl tr:hover td { background: #fafbfd; }
 
-  .chart-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
-  .chart-card .title { font-weight: 700; color: var(--text); margin-bottom: 4px; font-size: 15px; }
-  .chart-card .sub { color: var(--muted); font-size: 12.5px; margin-bottom: 12px; }
-  .chart-wrap { position: relative; height: 280px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+  .price-card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; box-shadow: var(--shadow); position: relative; }
+  .price-card.featured { border: 2px solid var(--accent); }
+  .price-card .name { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  .price-card .price { font-size: 30px; font-weight: 800; color: var(--text); margin: 4px 0; }
+  .price-card .price small { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .price-card .desc { color: var(--muted); font-size: 13px; }
+  .price-card .badge { position: absolute; top: -10px; right: 14px; background: var(--accent); color: white; font-size: 10px; padding: 3px 8px; border-radius: 999px; font-weight: 700; letter-spacing: 0.04em; }
 
-  .tag { display: inline-block; padding: 4px 9px; background: #eef2ff; color: #3730a3; border-radius: 999px; font-size: 12px; margin: 3px 4px 3px 0; font-weight: 500; }
+  .chart-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .chart-card .title { font-weight: 700; color: var(--text); margin-bottom: 2px; font-size: 14.5px; }
+  .chart-card .sub { color: var(--muted); font-size: 12px; margin-bottom: 10px; }
+  .chart-wrap { position: relative; height: 240px; }
+
+  .tag { display: inline-block; padding: 3px 8px; background: #eef2ff; color: #3730a3; border-radius: 999px; font-size: 11.5px; margin: 2px 3px 2px 0; font-weight: 500; }
+  .tag.accent { background: #fff7ed; color: #9a3412; }
   .tag.green { background: #ecfdf5; color: #065f46; }
-  .tag.red { background: #fef2f2; color: #991b1b; }
 
-  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; padding: 14px 16px; border-radius: var(--radius); color: #7c2d12; margin-top: 14px; font-size: 14px; }
+  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; padding: 12px 14px; border-radius: 10px; color: #7c2d12; margin-top: 12px; font-size: 13.5px; }
   .callout strong { color: #7c2d12; }
   .callout.green { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-color: #6ee7b7; color: #065f46; }
   .callout.green strong { color: #065f46; }
+  .callout.blue { background: linear-gradient(135deg, #eff6ff, #e0f2fe); border-color: #bae6fd; color: #1e3a8a; }
+  .callout.blue strong { color: #1e3a8a; }
 
-  .funnel-row { display: grid; grid-template-columns: 200px 1fr 70px; align-items: center; gap: 10px; padding: 7px 0; }
-  @media (max-width: 768px) { .funnel-row { grid-template-columns: 1fr; gap: 4px; } }
-  .funnel-label { font-weight: 600; color: var(--text); font-size: 13.5px; }
-  .funnel-bar-wrap { background: #eef2ff; border-radius: 999px; height: 20px; overflow: hidden; }
-  .funnel-bar { height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); display: flex; align-items: center; padding-left: 9px; color: white; font-size: 11.5px; font-weight: 600; }
-  .funnel-count { text-align: right; font-weight: 700; color: var(--text); font-size: 14px; }
+  .funnel-row { display: grid; grid-template-columns: 180px 1fr 60px; align-items: center; gap: 10px; padding: 5px 0; }
+  @media (max-width: 768px) { .funnel-row { grid-template-columns: 1fr; gap: 3px; } }
+  .funnel-label { font-weight: 600; color: var(--text); font-size: 13px; }
+  .funnel-bar-wrap { background: #eef2ff; border-radius: 999px; height: 18px; overflow: hidden; }
+  .funnel-bar { height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); display: flex; align-items: center; padding-left: 9px; color: white; font-size: 11px; font-weight: 600; }
+  .funnel-count { text-align: right; font-weight: 700; color: var(--text); font-size: 13px; }
 
   .channel {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
+    border-radius: 10px;
+    padding: 12px 14px;
     box-shadow: var(--shadow);
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 14px;
+    grid-template-columns: 30px 1fr auto;
+    gap: 12px;
     align-items: center;
+    margin-top: 6px;
   }
-  @media (max-width: 768px) {
-    .channel { grid-template-columns: 1fr; gap: 6px; }
-  }
-  .channel .rank { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; }
-  .channel .body strong { color: var(--text); display: block; font-size: 15px; }
-  .channel .body span { color: var(--muted); font-size: 13.5px; }
-  .channel .target { text-align: right; font-weight: 700; color: var(--accent); font-size: 14px; white-space: nowrap; }
+  @media (max-width: 768px) { .channel { grid-template-columns: 1fr; gap: 4px; } }
+  .channel .rank { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+  .channel .body strong { color: var(--text); display: block; font-size: 14px; }
+  .channel .body span { color: var(--muted); font-size: 12.5px; }
+  .channel .target { text-align: right; font-weight: 700; color: var(--accent); font-size: 13px; white-space: nowrap; }
   @media (max-width: 768px) { .channel .target { text-align: left; } }
 
-  footer { text-align: center; margin-top: 50px; color: var(--muted); font-size: 12.5px; }
+  footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 12px; }
 
   /* Mobile */
   @media (max-width: 768px) {
-    .wrap { padding: 16px 12px 40px; }
-    .hero { padding: 26px 18px; border-radius: 18px; }
-    .hero h1 { font-size: 24px; line-height: 1.2; }
-    .hero h1 br { display: none; }
-    .hero p.lead { font-size: 14px; }
-    .hero .meta { gap: 8px 16px; font-size: 12.5px; flex-direction: column; }
-    .pill { font-size: 10.5px; padding: 4px 9px; }
-    section { margin-top: 32px; }
-    h2 { font-size: 20px; }
-    h2 .num { min-width: 28px; height: 28px; line-height: 28px; font-size: 12px; margin-right: 10px; }
-    h3 { font-size: 16px; }
-    h4 { font-size: 12px; }
-    .section-sub { font-size: 13.5px; }
-    .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 12px; }
-    .kpi { padding: 12px; }
-    .kpi .value { font-size: 18px; line-height: 1.15; }
+    .hero h1 { font-size: 22px; }
+    .hero .meta { gap: 6px 14px; flex-direction: column; font-size: 12px; }
+    h2 { font-size: 18px; }
+    h2 .num { min-width: 26px; height: 26px; line-height: 26px; font-size: 12px; }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .kpi { padding: 10px; }
+    .kpi .value { font-size: 17px; }
     .kpi .label { font-size: 10px; }
     .kpi .delta { font-size: 11px; }
-    .card { padding: 16px; border-radius: 12px; }
-    .chart-card { padding: 14px; }
-    .chart-wrap { height: 230px; }
+    .chart-wrap { height: 200px; }
     table.tbl { display: block; overflow-x: auto; white-space: nowrap; font-size: 13px; }
-    table.tbl th, table.tbl td { padding: 10px 12px; }
   }
   @media (max-width: 480px) {
-    .hero h1 { font-size: 21px; }
-    .hero p.lead { font-size: 13.5px; }
-    h2 { font-size: 18px; }
-    .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .hero h1 { font-size: 20px; }
     .kpi .value { font-size: 15px; }
   }
 
   @media print {
-    body { background: white; }
-    .hero { background: #0b1020 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    section { page-break-inside: avoid; }
+    body { background: white; font-size: 12px; }
+    .wrap { padding: 14px; }
+    .hero { background: #0b1020 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 24px; border-radius: 12px; }
+    .hero h1 { font-size: 24px; }
+    section { margin-top: 18px; page-break-inside: avoid; }
+    h2 { font-size: 16px; }
+    .chart-wrap { height: 180px; }
+    .card, .channel, .month-row, .chart-card, .price-card, table.tbl { box-shadow: none; }
   }
 </style>
 </head>
@@ -208,16 +201,14 @@
 <div class="hero">
   <span class="pill">Phase 1 · May 16 → Dec 31, 2026</span>
   <h1>Ship V1. Win 20 Clients. <span>Done by Dec 31.</span></h1>
-  <p class="lead">7.5 months. Two co-founders. One contract dev from Month 3. One goal that matters.</p>
+  <p class="lead">7.5 months. Two co-founders, no salaries, no team. Public launch in October. The whole document is what it takes to hit 20 paying property owners by year-end.</p>
   <div class="meta">
-    <div><strong>Mahmoud</strong> · Marketing &amp; Sales</div>
-    <div><strong>Belal</strong> · Product &amp; Engineering</div>
-    <div><strong>Launch:</strong> October 2026</div>
-    <div><strong>Cash:</strong> $35–55k bootstrapped</div>
+    <div><strong>Mahmoud</strong> · Heads marketing &amp; manages the sales process (and the 3-person sales team once Phase 2 starts)</div>
+    <div><strong>Belal</strong> · Owns the product &amp; engineering — builds with Claude Code</div>
   </div>
 </div>
 
-<!-- 4 NUMBERS -->
+<!-- KPIs -->
 <section>
   <div class="grid grid-4">
     <div class="card kpi brand">
@@ -226,235 +217,165 @@
       <div class="delta">By Dec 31, 2026</div>
     </div>
     <div class="card kpi brand">
-      <div class="label">V1 public launch</div>
+      <div class="label">Public launch</div>
       <div class="value">Oct 2026</div>
       <div class="delta">After closed + paid beta</div>
     </div>
     <div class="card kpi accent">
       <div class="label">Year-end MRR</div>
-      <div class="value">$1.5–2k</div>
-      <div class="delta">~$80–100/client blended</div>
+      <div class="value">~$780</div>
+      <div class="delta">20 clients × $39 avg/property</div>
     </div>
     <div class="card kpi accent">
       <div class="label">Cash needed</div>
-      <div class="value">$35–55k</div>
-      <div class="delta">No founder salaries</div>
+      <div class="value">$15–25k</div>
+      <div class="delta">Bootstrapped, no salaries</div>
     </div>
   </div>
 </section>
 
-<!-- WHAT WE SHIP -->
+<!-- §1 V1 + PRICING -->
 <section>
-  <h2><span class="num">01</span>What V1 Is</h2>
-  <p class="section-sub">Aggressively scoped. Belal owns the ship list. Anything not below waits until 2027.</p>
+  <h2><span class="num">01</span>The Product &amp; Pricing</h2>
+  <p class="section-sub">Belal ships V1 by October using Claude Code as the build accelerator. Aggressively scoped. Everything not below waits until Phase 2.</p>
+
   <div class="grid grid-2">
     <div class="card">
       <h4 style="color:var(--accent-2);">Ship by October</h4>
       <ul class="clean">
-        <li><strong>Owner website builder</strong> — 5 templates, RTL/AR, custom domain</li>
-        <li><strong>Unified calendar</strong> — iCal 2-way sync to Airbnb, Booking.com, Vrbo, Expedia</li>
-        <li><strong>Booking inbox</strong> — inquiries to email + WhatsApp</li>
-        <li><strong>AI check-in flow</strong> — WhatsApp pre-arrival, access codes, EN + AR</li>
-        <li><strong>Payments</strong> — Tap + Stripe Connect</li>
+        <li><strong>Owner website builder</strong> — 5 templates, RTL/AR, custom domain, photo gallery</li>
+        <li><strong>Unified calendar</strong> — iCal 2-way sync to Airbnb, Booking.com, Vrbo, Expedia (no double-bookings)</li>
+        <li><strong>AI guest-message replies</strong> — auto-replies to Airbnb, Booking.com, and Vrbo guest chats in the host's voice, in any language</li>
+        <li><strong>Payments</strong> — Tap (MENA) + Stripe Connect (global)</li>
         <li><strong>30-min onboarding wizard</strong></li>
+        <li><strong>Basic analytics</strong> — bookings, channel performance, revenue</li>
       </ul>
     </div>
     <div class="card">
-      <h4 style="color:var(--warn);">Not in V1</h4>
+      <h4 style="color:var(--warn);">Not in V1 — explicitly cut</h4>
       <ul class="clean">
-        <li>Direct OTA APIs (iCal is enough — saves 6 months)</li>
+        <li>Direct OTA API integrations (iCal is enough)</li>
         <li>Dynamic pricing engine</li>
         <li>Accounting / financial reports</li>
         <li>Native mobile app</li>
         <li>Smart-lock integrations</li>
         <li>Multi-user team accounts</li>
+        <li>AI damage detection</li>
       </ul>
     </div>
   </div>
-  <p style="margin-top:14px;">
-    <span class="tag">Next.js 14</span>
+
+  <h3 style="margin-top:18px;">Pricing — three tiers, priced per property per month</h3>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="name">Starter</div>
+      <div class="price">$19<small>/property/mo</small></div>
+      <div class="desc">Solo Airbnb hosts<br/>1 property</div>
+    </div>
+    <div class="price-card featured">
+      <div class="badge">Most clients</div>
+      <div class="name">Growth</div>
+      <div class="price">$39<small>/property/mo</small></div>
+      <div class="desc">Small operators<br/>Up to 5 properties</div>
+    </div>
+    <div class="price-card">
+      <div class="name">Pro</div>
+      <div class="price">$59<small>/property/mo</small></div>
+      <div class="desc">Property managers<br/>Up to 15 properties</div>
+    </div>
+  </div>
+  <div class="callout blue">
+    <strong>Discount structure:</strong> First 5 customers (design partners) get 3 months free for weekly feedback. Customers 6–15 get 50% off for 6 months (paid pilots). Customers 16–20 pay full price. 14-day free trial on everything, no credit card upfront.
+  </div>
+
+  <p style="margin-top:10px;">
+    <span class="tag accent">Claude Code (build)</span>
+    <span class="tag">Next.js</span>
     <span class="tag">TypeScript</span>
-    <span class="tag">Postgres (Neon)</span>
-    <span class="tag">Tailwind</span>
+    <span class="tag">Postgres</span>
     <span class="tag">Vercel</span>
     <span class="tag">Stripe + Tap</span>
-    <span class="tag">WhatsApp API</span>
-    <span class="tag">Claude API</span>
+    <span class="tag">Claude API (guest replies)</span>
     <span class="tag">PostHog + Sentry</span>
   </p>
 </section>
 
-<!-- HOW WE WIN CUSTOMERS -->
+<!-- §2 ACQUISITION -->
 <section>
-  <h2><span class="num">02</span>How We Win 20 Customers</h2>
-  <p class="section-sub">The core of the plan. The first 3 channels deliver 70%+ of the first 20. Don't waste time on anything else until those are working.</p>
+  <h2><span class="num">02</span>How We Win 20 Clients</h2>
+  <p class="section-sub">Dubai market first. Mahmoud runs every touchpoint personally in Phase 1 — he's the entire &ldquo;sales team&rdquo; until the investor closes and we hire 3 reps in Phase 2.</p>
 
   <div class="chart-card">
-    <div class="title">The funnel — 600 conversations → 20 paying customers</div>
-    <div class="sub">Conservative conversion. Adjust monthly based on real data.</div>
-    <div style="margin-top:10px;">
-      <div class="funnel-row">
-        <div class="funnel-label">Conversations started</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">600</div></div>
-        <div class="funnel-count">600</div>
-      </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Demos booked</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:25%;">25%</div></div>
-        <div class="funnel-count">150</div>
-      </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Demos attended</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:17%;">17%</div></div>
-        <div class="funnel-count">100</div>
-      </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Pilots started</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:8%;">8%</div></div>
-        <div class="funnel-count">50</div>
-      </div>
-      <div class="funnel-row">
-        <div class="funnel-label">Paying customers</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:3.3%;">3.3%</div></div>
-        <div class="funnel-count">20</div>
-      </div>
+    <div class="title">The funnel — 800 conversations → 20 clients</div>
+    <div class="sub">Conservative conversion across all 6 channels combined.</div>
+    <div style="margin-top:8px;">
+      <div class="funnel-row"><div class="funnel-label">Conversations started</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">800</div></div><div class="funnel-count">800</div></div>
+      <div class="funnel-row"><div class="funnel-label">Demos booked</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:25%;">25%</div></div><div class="funnel-count">200</div></div>
+      <div class="funnel-row"><div class="funnel-label">Demos attended</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:16%;">16%</div></div><div class="funnel-count">125</div></div>
+      <div class="funnel-row"><div class="funnel-label">Pilots started</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:7%;">7%</div></div><div class="funnel-count">55</div></div>
+      <div class="funnel-row"><div class="funnel-label">Paying customers</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:2.5%;">2.5%</div></div><div class="funnel-count">20</div></div>
     </div>
   </div>
 
-  <h3 style="margin-top:24px;">Six channels — in priority order</h3>
+  <h3 style="margin-top:18px;">Six channels — Dubai-first, priority order</h3>
 
-  <div class="channel" style="margin-top:6px;">
-    <div class="rank">1</div>
-    <div class="body"><strong>Personal &amp; Walego network</strong><span>List 50 owners you know. Individual Loom + message to each. Highest trust, fastest close.</span></div>
-    <div class="target">→ 4–6 clients</div>
-  </div>
-  <div class="channel">
-    <div class="rank">2</div>
-    <div class="body"><strong>Cleaning &amp; maintenance partnerships</strong><span>20% rev-share for referrals. Sign 3–5 partnerships in Months 2–4. Highest ROI channel in this industry.</span></div>
-    <div class="target">→ 5–7 clients</div>
-  </div>
-  <div class="channel">
-    <div class="rank">3</div>
-    <div class="body"><strong>Cold outbound to Airbnb hosts</strong><span>Scrape public listings → DM with property name. 25 outreaches/week starting Month 2.</span></div>
-    <div class="target">→ 4–6 clients</div>
-  </div>
-  <div class="channel">
-    <div class="rank">4</div>
-    <div class="body"><strong>Real-estate &amp; tourism partnerships</strong><span>White-label dashboard for the agency, intros for us. Same with concierges.</span></div>
-    <div class="target">→ 2–3 clients</div>
-  </div>
-  <div class="channel">
-    <div class="rank">5</div>
-    <div class="body"><strong>Industry WhatsApp / Telegram groups</strong><span>Join 10. Be useful 30 days before mentioning the product. Slow burn, high referral rate.</span></div>
-    <div class="target">→ 1–2 clients</div>
-  </div>
-  <div class="channel">
-    <div class="rank">6</div>
-    <div class="body"><strong>SEO content (long-term)</strong><span>2 posts/week from Week 1. No Year 1 payoff — sets up 2027.</span></div>
-    <div class="target">→ 0 in 2026</div>
-  </div>
+  <div class="channel"><div class="rank">1</div><div class="body"><strong>Dubai network &amp; warm connections</strong><span>Personal contacts &amp; intros to Dubai property owners. Individual Loom videos, one-by-one outreach. Highest trust, fastest close.</span></div><div class="target">→ 5 clients</div></div>
 
-  <div class="grid grid-2" style="margin-top:18px;">
+  <div class="channel"><div class="rank">2</div><div class="body"><strong>LinkedIn outreach</strong><span>Cross-reference Airbnb / Booking host listings in Dubai with LinkedIn. Send personalized DMs to property managers and investors.</span></div><div class="target">→ 4 clients</div></div>
+
+  <div class="channel"><div class="rank">3</div><div class="body"><strong>Direct outreach to Airbnb &amp; Booking hosts</strong><span>Scrape public listings → find host contact (Instagram / WhatsApp / email) → property-specific message: "I noticed your apartment in [area] — 15-min demo?"</span></div><div class="target">→ 5 clients</div></div>
+
+  <div class="channel"><div class="rank">4</div><div class="body"><strong>Cold calls</strong><span>For listings where a phone number is published. 30 dials/week from Month 2. Short script, book the demo, hang up.</span></div><div class="target">→ 3 clients</div></div>
+
+  <div class="channel"><div class="rank">5</div><div class="body"><strong>Organic Google / SEO</strong><span>2 blog posts/week from Week 1. Target keywords: &ldquo;vacation rental software Dubai&rdquo;, &ldquo;Airbnb channel manager UAE&rdquo;, &ldquo;property manager software Dubai&rdquo;. Plays out in 2027 mostly.</span></div><div class="target">→ 2 clients</div></div>
+
+  <div class="channel"><div class="rank">6</div><div class="body"><strong>Dubai property-management WhatsApp groups</strong><span>Join 10 Dubai-specific groups. Be useful 30 days before pitching. Slow burn, high referral rate.</span></div><div class="target">→ 1 client</div></div>
+
+  <div class="grid grid-2" style="margin-top:14px;">
     <div class="card">
-      <h4>Demo &amp; sales process</h4>
+      <h4>Demo process</h4>
       <ul class="clean">
-        <li>Mahmoud takes every demo personally for the first 20</li>
-        <li>Pre-call: send 2-min Loom + 1-pager (cuts no-shows ~50%)</li>
-        <li>30 min: 5 discover → 15 demo → 5 pricing → 5 commit</li>
-        <li>Send proposal within 24h, 7-day acceptance window</li>
-        <li>Follow up at +3d, +7d, +14d, then close</li>
+        <li>Mahmoud runs every demo personally for the first 20</li>
+        <li>Pre-call: 2-min Loom + 1-pager (halves no-shows)</li>
+        <li>30 min: 5 discovery → 15 demo → 5 pricing → 5 commit</li>
+        <li>Proposal sent within 24h, 7-day acceptance window</li>
+        <li>Follow up at +3d, +7d, +14d</li>
       </ul>
     </div>
     <div class="card">
       <h4>First-customer success</h4>
       <ul class="clean">
         <li>White-glove onboarding: 60-min Zoom each, listings set up by us</li>
-        <li>Day 7 / 30 / 60 / 90 check-ins on calendar</li>
-        <li>Day 90: case study interview + referral ask</li>
+        <li>Day 7 / 30 / 60 / 90 check-ins</li>
+        <li>Day 90: case-study interview + referral ask</li>
         <li>Customer WhatsApp group — community, not support tickets</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- MONTH BY MONTH -->
+<!-- §3 PLAN -->
 <section>
   <h2><span class="num">03</span>The 7-Month Plan</h2>
-  <p class="section-sub">Each month has one focus. Hit it or stop and re-plan.</p>
+  <p class="section-sub">One focus per month. Hit it or stop and re-plan.</p>
 
-  <div class="month-row foundation">
-    <div class="when">May 16–31</div>
-    <div class="what">
-      <strong>Foundation</strong>
-      <span class="sub">Incorporate · founder agreement · domain · landing page · repo &amp; DB scaffold · 10 user interviews booked</span>
-    </div>
-    <div class="goal">0 clients</div>
-  </div>
+  <div class="month-row foundation"><div class="when">May 16–31</div><div class="what"><strong>Foundation</strong><span class="sub">Incorporate · founder agreement · domain · landing page · repo &amp; DB scaffold · 10 user interviews booked</span></div><div class="goal">0 clients</div></div>
 
-  <div class="month-row build">
-    <div class="when">June · M1</div>
-    <div class="what">
-      <strong>Discover &amp; Build Sprint 1</strong>
-      <span class="sub">30 user interviews · website builder + 3 templates · iCal sync prototype · 8 SEO posts · 100 waitlist signups · 30 cleaning-company outreach started</span>
-    </div>
-    <div class="goal">0 clients</div>
-  </div>
+  <div class="month-row build"><div class="when">June · M1</div><div class="what"><strong>Discover &amp; Build Sprint 1</strong><span class="sub">30 user interviews · website builder + 3 templates · iCal sync prototype · 8 SEO posts · 100 waitlist signups · LinkedIn outreach starts (50/week)</span></div><div class="goal">0 clients</div></div>
 
-  <div class="month-row build">
-    <div class="when">July · M2</div>
-    <div class="what">
-      <strong>Build Sprint 2 + Contract Dev</strong>
-      <span class="sub">Hire contract dev · iCal 2-way sync working · WhatsApp + AI flow v1 · payments integration started · internal end-to-end test · 2 cleaning partnerships signed</span>
-    </div>
-    <div class="goal">0 clients</div>
-  </div>
+  <div class="month-row build"><div class="when">July · M2</div><div class="what"><strong>Build Sprint 2</strong><span class="sub">iCal 2-way sync working · AI guest-reply engine v1 · payments integration · cold-outbound to 100 Airbnb hosts · 30 cold calls/week</span></div><div class="goal">0 clients</div></div>
 
-  <div class="month-row beta">
-    <div class="when">Aug · M3</div>
-    <div class="what">
-      <strong>Closed Beta (5 free design partners)</strong>
-      <span class="sub">5 properties live in production · weekly feedback calls · payments end-to-end · onboarding wizard done · daily bug triage</span>
-    </div>
-    <div class="goal">0 paying</div>
-  </div>
+  <div class="month-row beta"><div class="when">Aug · M3</div><div class="what"><strong>Closed Beta (5 free design partners)</strong><span class="sub">5 properties live in production · weekly feedback calls · payments end-to-end · onboarding wizard · daily bug triage</span></div><div class="goal">0 paying</div></div>
 
-  <div class="month-row beta">
-    <div class="when">Sep · M4</div>
-    <div class="what">
-      <strong>Paid Pilots (50% off, 6 months)</strong>
-      <span class="sub">Convert 2 design partners + acquire 3 new pilots · Stripe/Tap live · soft launch landing page · Day-7 / Day-30 check-ins</span>
-    </div>
-    <div class="goal">5 paying</div>
-  </div>
+  <div class="month-row beta"><div class="when">Sep · M4</div><div class="what"><strong>Paid Pilots (50% off, 6 months)</strong><span class="sub">Convert 2 design partners + acquire 3 new pilots · Stripe/Tap live · soft launch landing page · Day-7 / 30 check-ins</span></div><div class="goal">5 paying</div></div>
 
-  <div class="month-row launch">
-    <div class="when">Oct · M5</div>
-    <div class="what">
-      <strong>🚀 Public Launch</strong>
-      <span class="sub">Pricing live · ProductHunt (optional) · press to 3 publications · 50 outbound/week · 3rd–4th cleaning partnership · 1st case study · Capterra listing</span>
-    </div>
-    <div class="goal">10 paying</div>
-  </div>
+  <div class="month-row launch"><div class="when">Oct · M5</div><div class="what"><strong>🚀 Public Launch</strong><span class="sub">Pricing live · press to 3 publications · 100 outbound/week · LinkedIn scaled · 1st case study · Capterra listing</span></div><div class="goal">10 paying</div></div>
 
-  <div class="month-row scale">
-    <div class="when">Nov · M6</div>
-    <div class="what">
-      <strong>Scale What's Working</strong>
-      <span class="sub">First commission-only sales rep · double budget on winning channel · 2 features from customer feedback · 2nd–3rd case study · BFCM promo</span>
-    </div>
-    <div class="goal">15 paying</div>
-  </div>
+  <div class="month-row scale"><div class="when">Nov · M6</div><div class="what"><strong>Scale What's Working</strong><span class="sub">Double-down on winning channel · 2 features from customer feedback · 2nd–3rd case study · BFCM promo · investor warm intros</span></div><div class="goal">15 paying</div></div>
 
-  <div class="month-row scale">
-    <div class="when">Dec · M7</div>
-    <div class="what">
-      <strong>Close the Year</strong>
-      <span class="sub">5 more customers · year-end review · 2027 planning offsite · draft pre-seed deck · 3–5 warm investor intros</span>
-    </div>
-    <div class="goal">20 paying</div>
-  </div>
+  <div class="month-row scale"><div class="when">Dec · M7</div><div class="what"><strong>Close the Year</strong><span class="sub">5 more customers · year-end review · 2027 plan · finalize investor deck · Phase 2 hiring brief ready</span></div><div class="goal">20 paying</div></div>
 
-  <div class="grid grid-2" style="margin-top:18px;">
+  <div class="grid grid-2" style="margin-top:14px;">
     <div class="chart-card">
       <div class="title">Customers by month</div>
       <div class="sub">Cumulative paying clients</div>
@@ -462,58 +383,45 @@
     </div>
     <div class="chart-card">
       <div class="title">Monthly cash burn</div>
-      <div class="sub">Stacked by category — no founder salaries</div>
+      <div class="sub">No founder salaries — bootstrapped</div>
       <div class="chart-wrap"><canvas id="burnChart"></canvas></div>
     </div>
   </div>
 </section>
 
-<!-- CASH -->
+<!-- §4 CASH + RISKS + NEXT -->
 <section>
-  <h2><span class="num">04</span>The Cash</h2>
-  <p class="section-sub">Bootstrapped. No salaries for Mahmoud or Belal — both live on personal savings. $35–55k out-of-pocket across 7.5 months.</p>
-  <table class="tbl">
-    <thead>
-      <tr><th>Line item</th><th>Monthly</th><th>Phase 1 total</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Contract developer (Months 3–7)</td><td>$3,000–5,000</td><td>$15–25k</td></tr>
-      <tr><td>Marketing (Capterra, ads, content)</td><td>$500–2,000</td><td>$5–12k</td></tr>
-      <tr><td>Infra &amp; SaaS</td><td>$300–800</td><td>$3–6k</td></tr>
-      <tr><td>API costs (Claude, WhatsApp)</td><td>$200–800</td><td>$2–5k</td></tr>
-      <tr><td>Legal, incorporation, misc</td><td>$300–500</td><td>$3–5k</td></tr>
-      <tr><td><strong>Total Phase 1</strong></td><td>—</td><td><strong>$35–55k</strong></td></tr>
-    </tbody>
-  </table>
+  <h2><span class="num">04</span>Cash, Risks &amp; What Comes Next</h2>
+  <p class="section-sub">Bootstrapped from founder savings. No salaries until Phase 2.</p>
+
+  <div class="grid grid-2">
+    <div>
+      <h4>Phase 1 cash plan ($15–25k total)</h4>
+      <table class="tbl">
+        <thead><tr><th>Line item</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Marketing (LinkedIn tools, Capterra, content)</td><td>$5–10k</td></tr>
+          <tr><td>Infra &amp; SaaS (Vercel, Neon, Cloudflare)</td><td>$3–6k</td></tr>
+          <tr><td>APIs (Claude, scraping, comms)</td><td>$2–4k</td></tr>
+          <tr><td>Claude Code subscription (Belal)</td><td>$0.5–1k</td></tr>
+          <tr><td>Legal, incorporation, domain, misc</td><td>$3–5k</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>$15–25k</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <h4>Top 3 risks</h4>
+      <div class="card" style="padding:14px;">
+        <p style="margin:4px 0;"><strong>1 — Calendar sync bugs.</strong> Double-bookings lose customers in days. Belal builds sync test suite Week 1; no launch until 50 concurrent bookings pass.</p>
+        <p style="margin:8px 0 4px;"><strong>2 — Slipping October launch.</strong> Belal solo on the build. Mitigation: cut scope aggressively before missing the date.</p>
+        <p style="margin:8px 0 4px;"><strong>3 — Channels 1–3 don't deliver.</strong> If we don't hit 10 customers by end of October, year-end goal is gone. Weekly channel review; kill any channel without a customer by Month 4.</p>
+      </div>
+    </div>
+  </div>
+
   <div class="callout green">
-    <strong>How to fund it:</strong> Founder savings, split 50/50. If runway tightens in Months 5–7, take a small friends-and-family check at the cheapest possible terms. Don't open the pre-seed conversation until 2027.
-  </div>
-</section>
-
-<!-- WHAT COULD KILL THIS -->
-<section>
-  <h2><span class="num">05</span>What Could Kill This</h2>
-  <p class="section-sub">Five risks, ranked. Each has one specific mitigation.</p>
-  <div class="card">
-    <h4>1 — Calendar sync bugs</h4>
-    <p>Double-bookings will lose customers in days. <strong>Fix:</strong> Belal builds sync test suite Week 1. No public launch until 50 concurrent simulated bookings pass.</p>
-    <h4>2 — Slipping the October launch</h4>
-    <p>If V1 isn't ready by Oct, we miss 20 customers. <strong>Fix:</strong> Hire contract dev in July. Cut scope aggressively if any feature is at risk.</p>
-    <h4>3 — Channels 1–3 don't deliver</h4>
-    <p>If we don't have 10 customers by end of Oct, the year-end goal is gone. <strong>Fix:</strong> Weekly CAC-per-channel review. Kill any channel without a customer by Month 4.</p>
-    <h4>4 — Founder burnout</h4>
-    <p>Two people, 7.5 months, 5 hats each. <strong>Fix:</strong> One full day off per week, non-negotiable. Contract dev relieves Belal in Month 3.</p>
-    <h4>5 — Pricing too low</h4>
-    <p>$29–79 may not cover CAC. <strong>Fix:</strong> If first 10 customers all pick Growth, raise new-customer pricing to $99 in Q4.</p>
-  </div>
-</section>
-
-<!-- CLOSING -->
-<section>
-  <div class="card dark">
-    <p style="color:#e2e8f0; font-size: 16px; margin:0;">
-      <strong style="color:white;">The only number that matters: 20 paying customers on Dec 31, 2026.</strong> Mahmoud finds them. Belal builds something they won't churn from. One contract dev keeps the build on schedule. No office, no team, no fundraising — yet. Hit 20 by year-end and 2027 plans itself.
-    </p>
+    <strong>What comes after Phase 1 (Jan 2027):</strong> Close the investor, founders start drawing salaries, and hire 5 — <strong>1 developer</strong> (relieves Belal), <strong>1 marketer</strong>, and <strong>3 sales reps</strong> (outbound cold calls + demos). Mahmoud moves from running every demo himself to managing the 3-person sales team. The 20 paying customers we close in Phase 1 are the proof that unlocks all of it.
   </div>
 </section>
 
@@ -524,9 +432,7 @@
 </div>
 
 <script>
-  const palette = {
-    brand: '#1e3a8a', brand2: '#0ea5e9', accent: '#f97316', accent2: '#10b981', gray: '#94a3b8',
-  };
+  const palette = { brand: '#1e3a8a', brand2: '#0ea5e9', accent: '#f97316', accent2: '#10b981', gray: '#94a3b8' };
   Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
   Chart.defaults.color = '#475569';
   Chart.defaults.borderColor = '#e6e8ef';
@@ -540,12 +446,12 @@
         label: 'Paying clients',
         data: [0, 0, 0, 0, 5, 10, 15, 20],
         backgroundColor: ctx => {
-          const c = ctx.chart.ctx.createLinearGradient(0, 0, 0, 260);
+          const c = ctx.chart.ctx.createLinearGradient(0, 0, 0, 220);
           c.addColorStop(0, palette.accent);
           c.addColorStop(1, palette.brand);
           return c;
         },
-        borderRadius: 8,
+        borderRadius: 6,
       }]
     },
     options: {
@@ -560,10 +466,9 @@
     data: {
       labels: months,
       datasets: [
-        { label: 'Contract dev', data: [0, 0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0], backgroundColor: palette.accent2, stack: 's' },
-        { label: 'Marketing', data: [0.5, 1.0, 1.5, 1.5, 2.0, 3.0, 3.5, 3.5], backgroundColor: palette.accent, stack: 's' },
-        { label: 'Infra + APIs', data: [0.6, 0.8, 1.2, 1.5, 1.7, 2.0, 2.3, 2.5], backgroundColor: palette.brand2, stack: 's' },
-        { label: 'Legal/misc', data: [2.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5], backgroundColor: palette.gray, stack: 's' },
+        { label: 'Marketing', data: [0.3, 0.8, 1.2, 1.5, 2.0, 2.8, 3.0, 3.0], backgroundColor: palette.accent, stack: 's' },
+        { label: 'Infra + APIs', data: [0.4, 0.7, 1.0, 1.3, 1.5, 1.8, 2.0, 2.2], backgroundColor: palette.brand2, stack: 's' },
+        { label: 'Legal/misc', data: [2.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4], backgroundColor: palette.gray, stack: 's' },
       ]
     },
     options: {
