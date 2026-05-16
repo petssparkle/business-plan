@@ -41,6 +41,20 @@
   .hero .meta strong { color: white; }
   .pill { display: inline-block; padding: 5px 11px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; color: #e2e8f0; }
 
+  .hero-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 22px; }
+  .phase-chip { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 10px; padding: 12px 14px; }
+  .phase-chip .when { font-size: 10.5px; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
+  .phase-chip .what { font-size: 15px; font-weight: 800; color: white; margin: 4px 0 2px; line-height: 1.15; }
+  .phase-chip .sub { font-size: 11.5px; color: #cbd5e1; line-height: 1.35; }
+  @media (max-width: 768px) {
+    .hero-timeline { grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 14px 0 18px; }
+    .phase-chip { padding: 10px 12px; }
+    .phase-chip .what { font-size: 13.5px; }
+  }
+  @media (max-width: 380px) {
+    .hero-timeline { grid-template-columns: 1fr; }
+  }
+
   section { margin-top: 38px; }
   h2 { font-size: 22px; margin: 0 0 4px; letter-spacing: -0.01em; color: var(--text); }
   h2 .num { display: inline-block; min-width: 30px; height: 30px; line-height: 30px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 8px; font-size: 13px; margin-right: 10px; vertical-align: middle; font-weight: 700; }
@@ -226,11 +240,19 @@
 <div class="hero">
   <span class="pill">Phase 1 · May 16 → Dec 31, 2026</span>
   <h1>Ship V1. Win 20 Clients. <span>Done by Dec 31.</span></h1>
-  <p class="lead">7.5 months · 2 co-founders + Claude · no salaries · no team · no ads — under $1k total cash. <strong style="color:#fff;">May–June: pure build · Mid-July: website live, inbound begins · Aug 1: full launch · 5 months to 20 clients.</strong> Pure free inbound. V1 markets: US (primary) + UAE (secondary). EU is V2. App keeps improving through year-end.</p>
+  <p class="lead">Two co-founders + Claude · bootstrapped under $1,000 · pure free inbound · markets: <strong style="color:#fff;">US (primary) + UAE (secondary)</strong>.</p>
+
+  <div class="hero-timeline">
+    <div class="phase-chip"><div class="when">May–Jun</div><div class="what">Pure Build</div><div class="sub">$0 cash · no marketing</div></div>
+    <div class="phase-chip"><div class="when">Mid-July</div><div class="what">Site Live</div><div class="sub">Stripe + domain · inbound starts</div></div>
+    <div class="phase-chip"><div class="when">Aug 1</div><div class="what">Full Launch</div><div class="sub">All 6 channels on</div></div>
+    <div class="phase-chip"><div class="when">Aug–Dec</div><div class="what">20 Clients</div><div class="sub">5 months · ~4/month</div></div>
+  </div>
+
   <div class="meta">
-    <div><strong>Mahmoud</strong> · Marketing, partnerships &amp; inbound — manages demos through a commission-only sales partner who runs each demo when booked</div>
-    <div><strong>Belal</strong> · Product &amp; engineering — website backend, payments, OTA integrations, infra</div>
-    <div><strong>Claude</strong> · The third partner — Code for the build, API for guest replies, the hero assistant powering content &amp; ops</div>
+    <div><strong>Mahmoud</strong> · Marketing, partnerships &amp; inbound — manages demos through commission-only sales partner</div>
+    <div><strong>Belal</strong> · Product &amp; engineering — backend, payments, OTA integrations, infra</div>
+    <div><strong>Claude</strong> · The third partner — Code for the build, API for guest replies, content &amp; ops</div>
   </div>
 </div>
 
@@ -249,8 +271,8 @@
     </div>
     <div class="card kpi accent">
       <div class="label">Year-end MRR</div>
-      <div class="value">$1k–$1.5k+</div>
-      <div class="delta">Per-property pricing — scales with portfolio</div>
+      <div class="value">$1,000</div>
+      <div class="delta">20 clients · per-property mix</div>
     </div>
     <div class="card kpi accent">
       <div class="label">Cash needed</div>
@@ -491,15 +513,52 @@
   </div>
 </section>
 
-<!-- §5 What Comes After V1 — One Box, No More -->
+<!-- §5 What Comes After V1 — 2027 Plan -->
 <section>
-  <h2><span class="num">05</span>After V1</h2>
+  <h2><span class="num">05</span>After V1 — 2027 Plan</h2>
   <div class="v2-card">
-    <p style="color:#e2e8f0; font-size:15px; margin:0 0 8px;">
-      <strong style="color:white;">If 20 paying clients on Dec 31, 2026:</strong> investor closes Jan 2027 at <strong style="color:#38bdf8;">$20k–$40k</strong>. Each co-founder draws <strong style="color:#38bdf8;">$1,500/mo</strong>. We hire 5 at <strong style="color:#38bdf8;">~$1,000/mo each</strong> — 1 developer, 1 marketer, 3 sales reps for outbound. Cold-call motion starts. Total monthly team cost: ~$8k.
+    <p style="color:#e2e8f0; font-size:15px; margin:0 0 14px;">
+      Investor closes Jan 2027 with <strong style="color:#38bdf8;">$30,000</strong>. We hire 5: <strong style="color:white;">1 developer · 1 marketer · 3 sales reps</strong> (outbound). Cold-call motion starts. Goal of 2027: 250 paying clients and a path to profitability by Dec 31.
     </p>
-    <p style="color:#e2e8f0; font-size:15px; margin:0;">
-      <strong style="color:white;">H1 2027:</strong> scale to ~80–100 clients. <strong style="color:white;">H2 2027:</strong> path to profitability + EU. Specifics planned with real Phase 1 data, not now.
+
+    <div class="v2-grid">
+      <div class="v2-tile">
+        <h4>H1 2027 · Jan–Jun</h4>
+        <strong>100 paying clients</strong>
+        <span>
+          • End-of-H1 MRR: ~$5,000/mo<br/>
+          • Founders draw <strong style="color:white;">$1,000/mo</strong> each<br/>
+          • 5 hires @ $1,000/mo each<br/>
+          • Claude (team-wide): $300/mo<br/>
+          • <strong style="color:white;">Burn ~$7,800/mo</strong>
+        </span>
+      </div>
+      <div class="v2-tile">
+        <h4>H2 2027 · Jul–Dec</h4>
+        <strong>250 paying clients</strong>
+        <span>
+          • End-of-year MRR: ~$12,500/mo<br/>
+          • Founders bump to <strong style="color:white;">$1,500/mo</strong> each<br/>
+          • Same 5-person team<br/>
+          • Claude: $300/mo<br/>
+          • <strong style="color:white;">Burn ~$8,800/mo → revenue covers burn</strong>
+        </span>
+      </div>
+      <div class="v2-tile">
+        <h4>Survival math — $30k</h4>
+        <strong>~6 months runway</strong>
+        <span>
+          • Gross burn: $30k ÷ $7.8k = 3.8 mo<br/>
+          • Net of revenue: stretches to ~5–6 mo<br/>
+          • By M4 MRR (~$3k) offsets meaningfully<br/>
+          • H2 should be at or near profitable<br/>
+          • Bridge round optional mid-2027
+        </span>
+      </div>
+    </div>
+
+    <p style="color:#e2e8f0; font-size:14px; margin:14px 0 0;">
+      <strong style="color:white;">Translation:</strong> the $30k buys ~6 months of runway when revenue is factored in. Pressure is on H1 sales velocity — if we close <strong style="color:white;">~13 clients/month</strong>, we hit 100 by June and MRR carries us into H2. If we miss the pace, we raise a small bridge or trim team. Either way, EU expansion waits until 2028.
     </p>
   </div>
 </section>
