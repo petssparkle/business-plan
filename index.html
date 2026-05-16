@@ -25,7 +25,7 @@
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.55; }
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 36px 24px 70px; }
 
   .hero {
     position: relative;
@@ -34,175 +34,164 @@
                 linear-gradient(135deg, #0b1020 0%, #111733 60%, #1e3a8a 120%);
     color: white;
     border-radius: 24px;
-    padding: 56px 48px;
+    padding: 48px 44px;
     box-shadow: var(--shadow);
     overflow: hidden;
   }
-  .hero h1 { font-size: 44px; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .hero h1 { font-size: 40px; line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.02em; }
   .hero h1 span { background: linear-gradient(90deg, #38bdf8, #f97316); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .hero p.lead { font-size: 18px; max-width: 820px; color: #cbd5e1; margin: 0 0 28px; }
-  .hero .meta { display: flex; flex-wrap: wrap; gap: 24px; color: #cbd5e1; font-size: 14px; }
+  .hero p.lead { font-size: 17px; max-width: 760px; color: #cbd5e1; margin: 0 0 22px; }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: 22px; color: #cbd5e1; font-size: 13.5px; }
   .hero .meta strong { color: white; }
-  .pill { display: inline-block; padding: 6px 12px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; color: #e2e8f0; }
+  .pill { display: inline-block; padding: 5px 11px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; color: #e2e8f0; }
 
-  section { margin-top: 56px; }
-  h2 { font-size: 30px; margin: 0 0 8px; letter-spacing: -0.01em; color: var(--text); }
-  h2 .num { display: inline-block; min-width: 38px; height: 38px; line-height: 38px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 10px; font-size: 16px; margin-right: 12px; vertical-align: middle; font-weight: 700; }
-  h3 { font-size: 20px; margin: 24px 0 8px; color: var(--text); }
-  h4 { font-size: 14px; margin: 18px 0 6px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; }
-  p { color: var(--muted); margin: 8px 0; }
-  .section-sub { color: var(--muted); font-size: 15px; margin-bottom: 24px; max-width: 880px; }
+  section { margin-top: 48px; }
+  h2 { font-size: 26px; margin: 0 0 6px; letter-spacing: -0.01em; color: var(--text); }
+  h2 .num { display: inline-block; min-width: 34px; height: 34px; line-height: 34px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 9px; font-size: 14px; margin-right: 12px; vertical-align: middle; font-weight: 700; }
+  h3 { font-size: 18px; margin: 18px 0 6px; color: var(--text); }
+  h4 { font-size: 13px; margin: 14px 0 4px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  p { color: var(--muted); margin: 6px 0; }
+  .section-sub { color: var(--muted); font-size: 14.5px; margin-bottom: 18px; max-width: 880px; }
 
-  .grid { display: grid; gap: 20px; }
+  .grid { display: grid; gap: 18px; }
   .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
   @media (max-width: 900px) {
     .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    .hero { padding: 36px 24px; }
-    .hero h1 { font-size: 30px; }
-    .wrap { padding: 20px 14px 60px; }
+    .hero { padding: 32px 22px; }
+    .hero h1 { font-size: 28px; }
+    .wrap { padding: 20px 14px 50px; }
   }
 
-  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
   .card.dark { background: linear-gradient(135deg, #111733, #1e293b); color: #e2e8f0; border: none; }
   .card.dark p, .card.dark li { color: #cbd5e1; }
   .card.flat { box-shadow: none; }
 
-  .kpi { display: flex; flex-direction: column; gap: 4px; padding: 18px; }
-  .kpi .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-  .kpi .value { font-size: 28px; font-weight: 700; color: var(--text); }
-  .kpi .delta { font-size: 13px; color: var(--accent-2); font-weight: 600; }
+  .kpi { display: flex; flex-direction: column; gap: 3px; padding: 16px; }
+  .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .kpi .value { font-size: 26px; font-weight: 700; color: var(--text); }
+  .kpi .delta { font-size: 12.5px; color: var(--accent-2); font-weight: 600; }
   .kpi.brand .value { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .kpi.accent .value { color: var(--accent); }
 
-  ul.clean { list-style: none; padding-left: 0; margin: 6px 0; }
-  ul.clean li { position: relative; padding: 6px 0 6px 22px; color: var(--muted); font-size: 14.5px; }
-  ul.clean li::before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
+  ul.clean { list-style: none; padding-left: 0; margin: 4px 0; }
+  ul.clean li { position: relative; padding: 5px 0 5px 20px; color: var(--muted); font-size: 14px; }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
 
-  /* Month blocks */
-  .month-block {
+  /* Month rows — compact */
+  .month-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 90px;
+    gap: 16px;
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-top: 16px;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-top: 10px;
     box-shadow: var(--shadow);
     position: relative;
     overflow: hidden;
   }
-  .month-block::before {
-    content: "";
-    position: absolute;
-    left: 0; top: 0; bottom: 0; width: 5px;
-    background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  .month-row::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+  .month-row.foundation::before { background: linear-gradient(180deg, #94a3b8, #475569); }
+  .month-row.build::before { background: linear-gradient(180deg, #1e3a8a, #0ea5e9); }
+  .month-row.beta::before { background: linear-gradient(180deg, #0ea5e9, #10b981); }
+  .month-row.launch::before { background: linear-gradient(180deg, #f97316, #f59e0b); }
+  .month-row.scale::before { background: linear-gradient(180deg, #ef4444, #f97316); }
+  @media (max-width: 768px) {
+    .month-row { grid-template-columns: 1fr; padding: 14px 16px; gap: 6px; }
   }
-  .month-block.foundation::before { background: linear-gradient(180deg, #94a3b8, #475569); }
-  .month-block.build::before { background: linear-gradient(180deg, #1e3a8a, #0ea5e9); }
-  .month-block.beta::before { background: linear-gradient(180deg, #0ea5e9, #10b981); }
-  .month-block.launch::before { background: linear-gradient(180deg, #f97316, #f59e0b); }
-  .month-block.scale::before { background: linear-gradient(180deg, #ef4444, #f97316); }
-  .month-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; }
-  .month-head .month-tag { background: var(--bg-soft); color: white; padding: 5px 12px; border-radius: 8px; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
-  .month-head .target { color: var(--accent); font-weight: 700; font-size: 14px; }
-  .month-block h3 { margin: 0; font-size: 22px; }
-
-  .month-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0 12px; }
-  @media (max-width: 900px) { .month-stats { grid-template-columns: repeat(2, 1fr); } }
-  .stat { background: var(--panel-soft); border-radius: 10px; padding: 12px 14px; }
-  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-  .stat .value { font-weight: 700; font-size: 15px; color: var(--text); margin-top: 4px; }
+  .month-row .when { font-weight: 700; font-size: 13px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.04em; }
+  .month-row .what { font-size: 14px; color: var(--text); }
+  .month-row .what strong { color: var(--text); }
+  .month-row .what .sub { color: var(--muted); font-size: 13px; margin-top: 4px; display: block; }
+  .month-row .goal { text-align: right; font-weight: 700; color: var(--accent); font-size: 14px; }
+  @media (max-width: 768px) { .month-row .goal { text-align: left; } }
 
   table.tbl { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-  table.tbl th, table.tbl td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14.5px; }
-  table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+  table.tbl th, table.tbl td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
+  table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.04em; }
   table.tbl tr:last-child td { border-bottom: none; }
   table.tbl tr:hover td { background: #fafbfd; }
 
-  .chart-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
-  .chart-card .title { font-weight: 700; color: var(--text); margin-bottom: 4px; font-size: 16px; }
-  .chart-card .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
-  .chart-wrap { position: relative; height: 320px; }
+  .chart-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+  .chart-card .title { font-weight: 700; color: var(--text); margin-bottom: 4px; font-size: 15px; }
+  .chart-card .sub { color: var(--muted); font-size: 12.5px; margin-bottom: 12px; }
+  .chart-wrap { position: relative; height: 280px; }
 
-  .tag { display: inline-block; padding: 4px 10px; background: #eef2ff; color: #3730a3; border-radius: 999px; font-size: 12px; margin: 3px 4px 3px 0; font-weight: 500; }
+  .tag { display: inline-block; padding: 4px 9px; background: #eef2ff; color: #3730a3; border-radius: 999px; font-size: 12px; margin: 3px 4px 3px 0; font-weight: 500; }
   .tag.green { background: #ecfdf5; color: #065f46; }
-  .tag.orange { background: #fff7ed; color: #9a3412; }
   .tag.red { background: #fef2f2; color: #991b1b; }
-  .tag.gray { background: #f1f5f9; color: #334155; }
 
-  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; padding: 18px 20px; border-radius: var(--radius); color: #7c2d12; margin-top: 18px; }
+  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; padding: 14px 16px; border-radius: var(--radius); color: #7c2d12; margin-top: 14px; font-size: 14px; }
   .callout strong { color: #7c2d12; }
-  .callout.blue { background: linear-gradient(135deg, #eff6ff, #e0f2fe); border-color: #bae6fd; color: #1e3a8a; }
-  .callout.blue strong { color: #1e3a8a; }
   .callout.green { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-color: #6ee7b7; color: #065f46; }
   .callout.green strong { color: #065f46; }
 
-  .funnel-row { display: grid; grid-template-columns: 220px 1fr 80px; align-items: center; gap: 12px; padding: 10px 0; }
-  @media (max-width: 900px) { .funnel-row { grid-template-columns: 1fr; gap: 4px; } }
-  .funnel-label { font-weight: 600; color: var(--text); font-size: 14px; }
-  .funnel-bar-wrap { background: #eef2ff; border-radius: 999px; height: 22px; overflow: hidden; }
-  .funnel-bar { height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); display: flex; align-items: center; padding-left: 10px; color: white; font-size: 12px; font-weight: 600; }
-  .funnel-count { text-align: right; font-weight: 700; color: var(--text); }
+  .funnel-row { display: grid; grid-template-columns: 200px 1fr 70px; align-items: center; gap: 10px; padding: 7px 0; }
+  @media (max-width: 768px) { .funnel-row { grid-template-columns: 1fr; gap: 4px; } }
+  .funnel-label { font-weight: 600; color: var(--text); font-size: 13.5px; }
+  .funnel-bar-wrap { background: #eef2ff; border-radius: 999px; height: 20px; overflow: hidden; }
+  .funnel-bar { height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); display: flex; align-items: center; padding-left: 9px; color: white; font-size: 11.5px; font-weight: 600; }
+  .funnel-count { text-align: right; font-weight: 700; color: var(--text); font-size: 14px; }
 
-  .divider { height: 1px; background: var(--border); margin: 18px 0; }
-
-  footer { text-align: center; margin-top: 60px; color: var(--muted); font-size: 13px; }
-
-  /* === MOBILE OPTIMIZATIONS === */
+  .channel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: center;
+  }
   @media (max-width: 768px) {
-    .wrap { padding: 16px 12px 50px; }
-    .hero { padding: 28px 20px; border-radius: 18px; }
-    .hero h1 { font-size: 26px; line-height: 1.2; }
+    .channel { grid-template-columns: 1fr; gap: 6px; }
+  }
+  .channel .rank { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; }
+  .channel .body strong { color: var(--text); display: block; font-size: 15px; }
+  .channel .body span { color: var(--muted); font-size: 13.5px; }
+  .channel .target { text-align: right; font-weight: 700; color: var(--accent); font-size: 14px; white-space: nowrap; }
+  @media (max-width: 768px) { .channel .target { text-align: left; } }
+
+  footer { text-align: center; margin-top: 50px; color: var(--muted); font-size: 12.5px; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .wrap { padding: 16px 12px 40px; }
+    .hero { padding: 26px 18px; border-radius: 18px; }
+    .hero h1 { font-size: 24px; line-height: 1.2; }
     .hero h1 br { display: none; }
-    .hero p.lead { font-size: 14.5px; }
-    .hero .meta { gap: 10px 16px; font-size: 12.5px; flex-direction: column; }
-    .pill { font-size: 11px; padding: 4px 10px; margin-bottom: 14px; }
-    section { margin-top: 36px; }
-    h2 { font-size: 22px; line-height: 1.25; }
-    h2 .num { min-width: 30px; height: 30px; line-height: 30px; font-size: 13px; border-radius: 8px; margin-right: 10px; }
-    h3 { font-size: 17px; }
+    .hero p.lead { font-size: 14px; }
+    .hero .meta { gap: 8px 16px; font-size: 12.5px; flex-direction: column; }
+    .pill { font-size: 10.5px; padding: 4px 9px; }
+    section { margin-top: 32px; }
+    h2 { font-size: 20px; }
+    h2 .num { min-width: 28px; height: 28px; line-height: 28px; font-size: 12px; margin-right: 10px; }
+    h3 { font-size: 16px; }
     h4 { font-size: 12px; }
     .section-sub { font-size: 13.5px; }
     .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .grid-3 { grid-template-columns: 1fr; gap: 12px; }
-    .grid-2 { grid-template-columns: 1fr; gap: 12px; }
-    .kpi { padding: 12px; gap: 2px; }
+    .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 12px; }
+    .kpi { padding: 12px; }
     .kpi .value { font-size: 18px; line-height: 1.15; }
     .kpi .label { font-size: 10px; }
     .kpi .delta { font-size: 11px; }
     .card { padding: 16px; border-radius: 12px; }
-    .month-block { padding: 20px 18px 20px 22px; border-radius: 12px; }
-    .month-block::before { width: 4px; }
-    .month-block h3 { font-size: 18px; }
-    .month-head { gap: 10px; }
-    .month-head .month-tag { font-size: 11px; padding: 4px 10px; }
-    .month-stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .stat { padding: 10px 12px; }
-    .stat .value { font-size: 13px; }
-    .stat .label { font-size: 10px; }
-    .chart-card { padding: 16px; }
-    .chart-card .title { font-size: 15px; }
-    .chart-card .sub { font-size: 12px; }
-    .chart-wrap { height: 240px; }
-    table.tbl { display: block; overflow-x: auto; white-space: nowrap; font-size: 13px; -webkit-overflow-scrolling: touch; }
+    .chart-card { padding: 14px; }
+    .chart-wrap { height: 230px; }
+    table.tbl { display: block; overflow-x: auto; white-space: nowrap; font-size: 13px; }
     table.tbl th, table.tbl td { padding: 10px 12px; }
-    .tag { font-size: 11px; padding: 3px 8px; margin: 2px 3px 2px 0; }
-    .callout { padding: 14px 16px; font-size: 14px; }
-    footer { font-size: 11.5px; margin-top: 40px; }
-    .funnel-row { padding: 8px 0; }
   }
   @media (max-width: 480px) {
-    .wrap { padding: 12px 10px 40px; }
-    .hero { padding: 24px 18px; }
-    .hero h1 { font-size: 22px; }
-    .hero p.lead { font-size: 13.5px; margin-bottom: 18px; }
-    h2 { font-size: 19px; }
+    .hero h1 { font-size: 21px; }
+    .hero p.lead { font-size: 13.5px; }
+    h2 { font-size: 18px; }
     .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .kpi { padding: 10px; }
     .kpi .value { font-size: 15px; }
-    .chart-wrap { height: 200px; }
-    .month-block { padding: 18px 14px 18px 18px; }
-    .month-block h3 { font-size: 16px; }
   }
 
   @media print {
@@ -217,21 +206,19 @@
 
 <!-- HERO -->
 <div class="hero">
-  <span class="pill">Phase 1 · May 16 → December 31, 2026 · ~7.5 months</span>
-  <h1>Phase 1: <span>Ship V1 &amp; Win 20 Clients</span><br/>By the end of 2026.</h1>
-  <p class="lead">A focused, week-by-week plan for the next 7.5 months: get the product from zero to a real V1, get the first 20 paying property owners onto it, and exit the year ready to scale.</p>
+  <span class="pill">Phase 1 · May 16 → Dec 31, 2026</span>
+  <h1>Ship V1. Win 20 Clients. <span>Done by Dec 31.</span></h1>
+  <p class="lead">7.5 months. Two co-founders. One contract dev from Month 3. One goal that matters.</p>
   <div class="meta">
-    <div><strong>Mahmoud</strong> · Marketing, Sales &amp; Ops</div>
+    <div><strong>Mahmoud</strong> · Marketing &amp; Sales</div>
     <div><strong>Belal</strong> · Product &amp; Engineering</div>
-    <div><strong>Window:</strong> May 16 → Dec 31, 2026</div>
-    <div><strong>Year-end goal:</strong> V1 live · 20 paying clients</div>
+    <div><strong>Launch:</strong> October 2026</div>
+    <div><strong>Cash:</strong> $35–55k bootstrapped</div>
   </div>
 </div>
 
-<!-- SUCCESS METRICS -->
+<!-- 4 NUMBERS -->
 <section>
-  <h2><span class="num">01</span>What Success Looks Like by Dec 31, 2026</h2>
-  <p class="section-sub">Four numbers we either hit or we don't. Everything in this plan ladders up to these.</p>
   <div class="grid grid-4">
     <div class="card kpi brand">
       <div class="label">Paying clients</div>
@@ -239,191 +226,76 @@
       <div class="delta">By Dec 31, 2026</div>
     </div>
     <div class="card kpi brand">
-      <div class="label">V1 product</div>
-      <div class="value">Live</div>
-      <div class="delta">Public launch Oct 2026</div>
+      <div class="label">V1 public launch</div>
+      <div class="value">Oct 2026</div>
+      <div class="delta">After closed + paid beta</div>
     </div>
     <div class="card kpi accent">
       <div class="label">Year-end MRR</div>
-      <div class="value">$1.5–2.5k</div>
-      <div class="delta">~$80–125/client/mo blended</div>
+      <div class="value">$1.5–2k</div>
+      <div class="delta">~$80–100/client blended</div>
     </div>
     <div class="card kpi accent">
       <div class="label">Cash needed</div>
-      <div class="value">$35–60k</div>
-      <div class="delta">Excluding founder living costs</div>
+      <div class="value">$35–55k</div>
+      <div class="delta">No founder salaries</div>
     </div>
-  </div>
-</section>
-
-<!-- THE WEDGE -->
-<section>
-  <h2><span class="num">02</span>The Wedge — Why Customers Will Switch</h2>
-  <p class="section-sub">Lodgify, Hostaway, and Guesty are crowded. We're not competing on parity — we're sharper in three specific ways.</p>
-  <div class="grid grid-3">
-    <div class="card">
-      <h4>Wedge 1</h4>
-      <h3 style="margin-top:4px;">Beautiful Owner Websites</h3>
-      <p>A property owner gets a fast, modern, multi-language (EN + AR) booking website in under 30 minutes. This was Lodgify's original wedge — we ship a 2026 version of it with better design and an integrated booking widget.</p>
-    </div>
-    <div class="card">
-      <h4>Wedge 2</h4>
-      <h3 style="margin-top:4px;">AI Check-in &amp; Check-out</h3>
-      <p>WhatsApp-native pre-arrival flow, automated access codes, multilingual concierge, and post-stay review collection — all powered by Claude. Almost no incumbent has built this well.</p>
-    </div>
-    <div class="card">
-      <h4>Wedge 3</h4>
-      <h3 style="margin-top:4px;">One Calendar, Four Channels</h3>
-      <p>iCal 2-way sync to Airbnb, Booking.com, Vrbo, and Expedia from day one. Zero double-bookings. The single feature that will retain every customer we win.</p>
-    </div>
-  </div>
-</section>
-
-<!-- THE TEAM -->
-<section>
-  <h2><span class="num">03</span>Who Does What</h2>
-  <p class="section-sub">Two co-founders for 7.5 months. We add a contract developer in Month 3 to keep velocity up. No other hires until 2027.</p>
-
-  <div class="grid grid-2">
-    <div class="card">
-      <h4>Mahmoud</h4>
-      <h3 style="margin-top:4px;">Marketing, Sales &amp; Ops</h3>
-      <ul class="clean">
-        <li>Landing page + brand + positioning</li>
-        <li>SEO content (2 posts/week, starting Week 1)</li>
-        <li>Every demo &amp; first sales call for the first 20 customers — personally</li>
-        <li>Cleaning &amp; real-estate partnership outreach</li>
-        <li>Cold outbound to Airbnb hosts</li>
-        <li>WhatsApp + email support for early users</li>
-        <li>Customer success calls (Day 7 / 30 / 60 / 90 with every customer)</li>
-        <li>Founder agreement + incorporation + finances</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h4>Belal</h4>
-      <h3 style="margin-top:4px;">Product &amp; Engineering</h3>
-      <ul class="clean">
-        <li>End-to-end ownership of the product</li>
-        <li>Backend: Postgres schema, auth, billing</li>
-        <li>Website builder (Next.js + templates)</li>
-        <li>iCal 2-way sync engine (the hard part)</li>
-        <li>WhatsApp AI flow with Claude API</li>
-        <li>Payments — Stripe Connect / Tap integration</li>
-        <li>Infra: CI/CD, monitoring, on-call</li>
-        <li>Tech screening for the contract dev in Month 3</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="callout blue">
-    <strong>One contract developer hired Month 3 (~$3–5k/mo).</strong> Sourced from Eastern Europe or South Asia. Focus: helping Belal ship the AI flow and the payment integration in parallel so the product is launch-ready by October. No other hires this year.
   </div>
 </section>
 
 <!-- WHAT WE SHIP -->
 <section>
-  <h2><span class="num">04</span>What V1 Includes</h2>
-  <p class="section-sub">Aggressively scoped. Everything not on the &ldquo;ship&rdquo; list is explicitly excluded — no scope creep until we have 20 paying customers.</p>
+  <h2><span class="num">01</span>What V1 Is</h2>
+  <p class="section-sub">Aggressively scoped. Belal owns the ship list. Anything not below waits until 2027.</p>
   <div class="grid grid-2">
     <div class="card">
-      <h4 style="color:var(--accent-2);">Ship in V1</h4>
+      <h4 style="color:var(--accent-2);">Ship by October</h4>
       <ul class="clean">
-        <li><strong>Property owner website builder</strong> — 5 templates, custom domain, RTL/AR, photo gallery</li>
-        <li><strong>Unified calendar</strong> with iCal 2-way sync to Airbnb, Booking.com, Vrbo, Expedia</li>
-        <li><strong>Booking widget</strong> embedded on owner websites</li>
-        <li><strong>Booking inbox</strong> — inquiries routed to email + WhatsApp</li>
-        <li><strong>AI check-in flow</strong> — pre-arrival WhatsApp message, access codes, multilingual</li>
-        <li><strong>Payments</strong> — Tap (MENA) + Stripe Connect (global)</li>
-        <li><strong>30-min onboarding wizard</strong> — from sign-up to first listing</li>
-        <li><strong>Analytics</strong> — bookings, channel performance, revenue (basic)</li>
+        <li><strong>Owner website builder</strong> — 5 templates, RTL/AR, custom domain</li>
+        <li><strong>Unified calendar</strong> — iCal 2-way sync to Airbnb, Booking.com, Vrbo, Expedia</li>
+        <li><strong>Booking inbox</strong> — inquiries to email + WhatsApp</li>
+        <li><strong>AI check-in flow</strong> — WhatsApp pre-arrival, access codes, EN + AR</li>
+        <li><strong>Payments</strong> — Tap + Stripe Connect</li>
+        <li><strong>30-min onboarding wizard</strong></li>
       </ul>
     </div>
     <div class="card">
-      <h4 style="color:var(--warn);">Explicitly NOT in V1</h4>
+      <h4 style="color:var(--warn);">Not in V1</h4>
       <ul class="clean">
-        <li>Direct OTA API integrations (iCal is enough — saves 6 months)</li>
+        <li>Direct OTA APIs (iCal is enough — saves 6 months)</li>
         <li>Dynamic pricing engine</li>
-        <li>Accounting &amp; financial reports</li>
-        <li>Native mobile app (web is responsive)</li>
-        <li>Multi-user / team accounts</li>
-        <li>Smart-lock direct integrations (manual codes work)</li>
-        <li>AI damage detection (Phase 1.5)</li>
-        <li>Owner mobile app (Phase 1.5)</li>
+        <li>Accounting / financial reports</li>
+        <li>Native mobile app</li>
+        <li>Smart-lock integrations</li>
+        <li>Multi-user team accounts</li>
       </ul>
     </div>
   </div>
-
-  <h4>Tech stack</h4>
-  <p style="margin-top:0;">
+  <p style="margin-top:14px;">
     <span class="tag">Next.js 14</span>
     <span class="tag">TypeScript</span>
     <span class="tag">Postgres (Neon)</span>
-    <span class="tag">Prisma</span>
     <span class="tag">Tailwind</span>
     <span class="tag">Vercel</span>
-    <span class="tag">Stripe Connect</span>
-    <span class="tag">Tap Payments</span>
-    <span class="tag">WhatsApp Business API</span>
+    <span class="tag">Stripe + Tap</span>
+    <span class="tag">WhatsApp API</span>
     <span class="tag">Claude API</span>
-    <span class="tag">Cloudflare R2</span>
-    <span class="tag">PostHog</span>
-    <span class="tag">Sentry</span>
-    <span class="tag">Resend</span>
+    <span class="tag">PostHog + Sentry</span>
   </p>
 </section>
 
-<!-- PRODUCT READINESS -->
+<!-- HOW WE WIN CUSTOMERS -->
 <section>
-  <h2><span class="num">05</span>Product Readiness — Go-Live Checklist</h2>
-  <p class="section-sub">No public launch until every one of these is a confident <strong>yes</strong>. Belal owns this gate.</p>
-  <div class="card">
-    <ul class="clean">
-      <li>A property owner can sign up, list a property, and see a working booking website in under 30 minutes</li>
-      <li>An inquiry from Airbnb auto-creates a booking and blocks the calendar on all other channels within 5 minutes</li>
-      <li>Double-bookings are impossible — proven by stress-test of 50 concurrent simulated bookings</li>
-      <li>AI WhatsApp pre-arrival message fires automatically 48h before check-in, in EN + AR</li>
-      <li>Payment via Tap or Stripe Connect is tested end-to-end — including refund and partial refund flows</li>
-      <li>Sentry + PostHog + uptime alerts are wired up — every error and every signup visible in real-time</li>
-      <li>Public pricing page, sign-up flow, Calendly demo link, and 2-min Loom intro video are all live</li>
-      <li>At least 1 real customer has been using the product in production for 2+ weeks with zero P0 bugs</li>
-      <li>Privacy policy, terms of service, and refund policy are published</li>
-      <li>Daily Postgres backup is running and a restore has been successfully tested once</li>
-    </ul>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section>
-  <h2><span class="num">06</span>Pricing &amp; Packaging</h2>
-  <p class="section-sub">Simple flat monthly pricing. No transaction fees in V1. Annual prepay rewards retention.</p>
-  <table class="tbl">
-    <thead>
-      <tr><th>Plan</th><th>Monthly</th><th>Annual (2 months free)</th><th>Properties</th><th>Target customer</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>Starter</strong></td><td>$29</td><td>$290</td><td>1</td><td>Solo Airbnb host</td></tr>
-      <tr><td><strong>Growth</strong></td><td>$79</td><td>$790</td><td>Up to 5</td><td>Small operator (majority of customers)</td></tr>
-      <tr><td><strong>Pro</strong></td><td>$149</td><td>$1,490</td><td>Up to 15</td><td>Property manager / boutique agency</td></tr>
-      <tr><td><strong>Enterprise</strong></td><td>Custom</td><td>—</td><td>15+</td><td>Larger PMs (handle case-by-case in Year 1)</td></tr>
-    </tbody>
-  </table>
-  <div class="callout blue">
-    <strong>Trial / discount structure:</strong> 14-day free trial, no credit card upfront. First 5 customers (design partners) get 3 months free in exchange for weekly feedback calls. Customers 6–15 get 50% off for 6 months (paid pilots). Customers 16–20 pay full price.
-  </div>
-</section>
-
-<!-- CUSTOMER ACQUISITION PLAYBOOK -->
-<section>
-  <h2><span class="num">07</span>Customer Acquisition Playbook</h2>
-  <p class="section-sub">The whole point of Phase 1. Six channels in priority order — the first three are how the first 20 customers actually come in. Stop spending energy on the others until those three are working.</p>
+  <h2><span class="num">02</span>How We Win 20 Customers</h2>
+  <p class="section-sub">The core of the plan. The first 3 channels deliver 70%+ of the first 20. Don't waste time on anything else until those are working.</p>
 
   <div class="chart-card">
-    <div class="title">Expected funnel — 200 outreaches → 20 paying customers</div>
-    <div class="sub">Conservative conversion assumptions. Adjust monthly based on real data.</div>
-    <div style="margin-top:14px;">
+    <div class="title">The funnel — 600 conversations → 20 paying customers</div>
+    <div class="sub">Conservative conversion. Adjust monthly based on real data.</div>
+    <div style="margin-top:10px;">
       <div class="funnel-row">
-        <div class="funnel-label">Total touchpoints</div>
-        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">600 conversations</div></div>
+        <div class="funnel-label">Conversations started</div>
+        <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">600</div></div>
         <div class="funnel-count">600</div>
       </div>
       <div class="funnel-row">
@@ -449,459 +321,217 @@
     </div>
   </div>
 
-  <h3 style="margin-top:32px;">The 6 acquisition channels (priority order)</h3>
+  <h3 style="margin-top:24px;">Six channels — in priority order</h3>
 
-  <div class="grid grid-2">
-    <div class="card">
-      <h4>Channel 1 — Target: 4–6 customers</h4>
-      <h3 style="margin-top:2px;">Personal &amp; Walego network</h3>
-      <p>Make a list of 50 property owners you know personally — through Walego, hospitality, friends-of-friends. Message every one individually with a 2-min Loom video. Highest trust, fastest close, ~10% conversion. Expected start: <strong>Week 1</strong>.</p>
-      <p><strong>Conversion rate to paid:</strong> ~10%. <strong>Touchpoints needed:</strong> 50.</p>
-    </div>
-
-    <div class="card">
-      <h4>Channel 2 — Target: 5–7 customers</h4>
-      <h3 style="margin-top:2px;">Cleaning &amp; maintenance partnerships</h3>
-      <p>Cleaning companies have 10–50 property-owner clients each and direct trust with them. Offer 20% revenue share for referrals. Sign 3–5 cleaning partnerships in Months 2–4. One of the highest-ROI channels in this entire industry.</p>
-      <p><strong>Outreach plan:</strong> 30 cleaning companies → 5 sign partnership → 1–2 customers per partnership.</p>
-    </div>
-
-    <div class="card">
-      <h4>Channel 3 — Target: 4–6 customers</h4>
-      <h3 style="margin-top:2px;">Cold outbound to Airbnb hosts</h3>
-      <p>Scrape public Airbnb listings in target cities → find host details on Instagram or via their listing → DM/email a targeted pitch with the property name. Volume game: 200 outreaches → ~20 demos → ~5 customers.</p>
-      <p><strong>Cadence:</strong> 25 outreaches per week starting Month 2.</p>
-    </div>
-
-    <div class="card">
-      <h4>Channel 4 — Target: 2–3 customers</h4>
-      <h3 style="margin-top:2px;">Real-estate &amp; tourism partnerships</h3>
-      <p>Real-estate agencies selling vacation homes have post-sale relationships with buyers. Co-marketing: free white-label dashboard for the agency, intros for you. Same play with local concierge services and tourism boards.</p>
-      <p><strong>Target:</strong> 5 agencies signed, 1 customer per agency in Year 1.</p>
-    </div>
-
-    <div class="card">
-      <h4>Channel 5 — Target: 1–2 customers</h4>
-      <h3 style="margin-top:2px;">Industry WhatsApp / Telegram groups</h3>
-      <p>Join 10 relevant property-management groups in EN + AR. Be useful for 30 days before you mention the product. Then mention it organically — never broadcast. Slow burn, but every customer here also brings 1–2 referrals.</p>
-      <p><strong>Time investment:</strong> 30 min/day, every day.</p>
-    </div>
-
-    <div class="card">
-      <h4>Channel 6 — Target: 0 customers Year 1</h4>
-      <h3 style="margin-top:2px;">SEO content (long-term play)</h3>
-      <p>Start writing now even though it won't pay off in 2026. Target keywords: "vacation rental website builder", "Airbnb check-in automation", "channel manager Dubai". Write 2 posts per week starting Week 1 — pays off in 2027.</p>
-      <p><strong>Goal:</strong> 50+ indexed posts by Dec 31.</p>
-    </div>
+  <div class="channel" style="margin-top:6px;">
+    <div class="rank">1</div>
+    <div class="body"><strong>Personal &amp; Walego network</strong><span>List 50 owners you know. Individual Loom + message to each. Highest trust, fastest close.</span></div>
+    <div class="target">→ 4–6 clients</div>
+  </div>
+  <div class="channel">
+    <div class="rank">2</div>
+    <div class="body"><strong>Cleaning &amp; maintenance partnerships</strong><span>20% rev-share for referrals. Sign 3–5 partnerships in Months 2–4. Highest ROI channel in this industry.</span></div>
+    <div class="target">→ 5–7 clients</div>
+  </div>
+  <div class="channel">
+    <div class="rank">3</div>
+    <div class="body"><strong>Cold outbound to Airbnb hosts</strong><span>Scrape public listings → DM with property name. 25 outreaches/week starting Month 2.</span></div>
+    <div class="target">→ 4–6 clients</div>
+  </div>
+  <div class="channel">
+    <div class="rank">4</div>
+    <div class="body"><strong>Real-estate &amp; tourism partnerships</strong><span>White-label dashboard for the agency, intros for us. Same with concierges.</span></div>
+    <div class="target">→ 2–3 clients</div>
+  </div>
+  <div class="channel">
+    <div class="rank">5</div>
+    <div class="body"><strong>Industry WhatsApp / Telegram groups</strong><span>Join 10. Be useful 30 days before mentioning the product. Slow burn, high referral rate.</span></div>
+    <div class="target">→ 1–2 clients</div>
+  </div>
+  <div class="channel">
+    <div class="rank">6</div>
+    <div class="body"><strong>SEO content (long-term)</strong><span>2 posts/week from Week 1. No Year 1 payoff — sets up 2027.</span></div>
+    <div class="target">→ 0 in 2026</div>
   </div>
 
-  <h3 style="margin-top:32px;">Demo &amp; sales process</h3>
-  <div class="card">
-    <ul class="clean">
-      <li>Calendly link with 30-min slots — Mahmoud takes every demo for the first 20</li>
-      <li><strong>Pre-call (cuts no-shows ~50%):</strong> send the 2-min Loom + 1-page PDF before every call</li>
-      <li><strong>Call structure:</strong> 5 min discovery → 15 min live demo → 5 min pricing → 5 min commit-to-pilot ask</li>
-      <li><strong>Send proposal within 24h</strong> with a 7-day acceptance window (urgency)</li>
-      <li><strong>Follow-up cadence:</strong> +3 days (send a relevant tip), +7 days (case-study or comparison), +14 days (final ask)</li>
-      <li>Log every demo into a simple Notion or Attio CRM — never miss a follow-up</li>
-    </ul>
-  </div>
-
-  <h3 style="margin-top:32px;">First-customer success playbook</h3>
-  <div class="card">
-    <ul class="clean">
-      <li><strong>White-glove onboarding for all 20:</strong> Mahmoud or Belal sets up each customer's listings personally on a 60-min Zoom</li>
-      <li><strong>Day 7 check-in:</strong> "How is the calendar sync working? Any inquiries come through?"</li>
-      <li><strong>Day 30 check-in:</strong> "What's the one thing missing that would make this a 10/10?"</li>
-      <li><strong>Day 60 NPS survey:</strong> simple 1-question form, in their language</li>
-      <li><strong>Day 90 case-study ask:</strong> 15-min recorded interview → public case study + a referral ask</li>
-      <li><strong>Slack / WhatsApp group for all customers</strong> — turns them into a community, reduces support load, generates feature ideas</li>
-    </ul>
+  <div class="grid grid-2" style="margin-top:18px;">
+    <div class="card">
+      <h4>Demo &amp; sales process</h4>
+      <ul class="clean">
+        <li>Mahmoud takes every demo personally for the first 20</li>
+        <li>Pre-call: send 2-min Loom + 1-pager (cuts no-shows ~50%)</li>
+        <li>30 min: 5 discover → 15 demo → 5 pricing → 5 commit</li>
+        <li>Send proposal within 24h, 7-day acceptance window</li>
+        <li>Follow up at +3d, +7d, +14d, then close</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>First-customer success</h4>
+      <ul class="clean">
+        <li>White-glove onboarding: 60-min Zoom each, listings set up by us</li>
+        <li>Day 7 / 30 / 60 / 90 check-ins on calendar</li>
+        <li>Day 90: case study interview + referral ask</li>
+        <li>Customer WhatsApp group — community, not support tickets</li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <!-- MONTH BY MONTH -->
 <section>
-  <h2><span class="num">08</span>Month-by-Month Execution</h2>
-  <p class="section-sub">From today (May 16) through December 31. Hit these milestones each month or stop and re-plan.</p>
+  <h2><span class="num">03</span>The 7-Month Plan</h2>
+  <p class="section-sub">Each month has one focus. Hit it or stop and re-plan.</p>
 
-  <!-- May (half month) -->
-  <div class="month-block foundation">
-    <div class="month-head">
-      <span class="month-tag">May 16 – May 31</span>
-      <h3>Foundation (2 weeks)</h3>
-      <span class="target">Goal: incorporate &amp; start building</span>
+  <div class="month-row foundation">
+    <div class="when">May 16–31</div>
+    <div class="what">
+      <strong>Foundation</strong>
+      <span class="sub">Incorporate · founder agreement · domain · landing page · repo &amp; DB scaffold · 10 user interviews booked</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Customers</div><div class="value">0</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$3–5k</div></div>
-      <div class="stat"><div class="label">Status</div><div class="value">Foundation</div></div>
-      <div class="stat"><div class="label">Output</div><div class="value">Legal + landing page</div></div>
-    </div>
-    <ul class="clean">
-      <li>Incorporate (Delaware C-Corp or UAE Free Zone — decide week 1)</li>
-      <li>Co-founder agreement signed with 4-year vesting, 1-year cliff</li>
-      <li>Equity split written down</li>
-      <li>Domain registered + Google Workspace + GitHub org</li>
-      <li>Basic brand (logo, colors, fonts) + landing page with waitlist</li>
-      <li>Stripe Atlas / business bank account opened</li>
-      <li>Belal starts building: repo set up, Next.js app, database schema, auth</li>
-      <li>Mahmoud books 10 user interviews for June</li>
-    </ul>
+    <div class="goal">0 clients</div>
   </div>
 
-  <!-- June -->
-  <div class="month-block build">
-    <div class="month-head">
-      <span class="month-tag">June 2026 · Month 1</span>
-      <h3>Discover &amp; Build — Sprint 1</h3>
-      <span class="target">Goal: working website builder + waitlist of 100</span>
+  <div class="month-row build">
+    <div class="when">June · M1</div>
+    <div class="what">
+      <strong>Discover &amp; Build Sprint 1</strong>
+      <span class="sub">30 user interviews · website builder + 3 templates · iCal sync prototype · 8 SEO posts · 100 waitlist signups · 30 cleaning-company outreach started</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Customers</div><div class="value">0</div></div>
-      <div class="stat"><div class="label">Waitlist</div><div class="value">100</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$3–4k</div></div>
-      <div class="stat"><div class="label">Build progress</div><div class="value">~30%</div></div>
-    </div>
-    <ul class="clean">
-      <li>Mahmoud completes 30 user interviews with property owners (1 per day)</li>
-      <li>Identify 5 design partners from the interviews</li>
-      <li>Belal ships: working website builder with 3 templates, RTL support, custom domain via Vercel</li>
-      <li>iCal sync engine prototype — reads from Airbnb iCal export, writes to Postgres</li>
-      <li>Mahmoud publishes 8 SEO articles (2/week) + 2 demo Loom videos</li>
-      <li>Start outreach to 30 cleaning companies for partnerships</li>
-      <li>Waitlist hits 100 sign-ups</li>
-    </ul>
+    <div class="goal">0 clients</div>
   </div>
 
-  <!-- July -->
-  <div class="month-block build">
-    <div class="month-head">
-      <span class="month-tag">July 2026 · Month 2</span>
-      <h3>Build — Sprint 2 &amp; Hire Contract Dev</h3>
-      <span class="target">Goal: end-to-end demo working internally</span>
+  <div class="month-row build">
+    <div class="when">July · M2</div>
+    <div class="what">
+      <strong>Build Sprint 2 + Contract Dev</strong>
+      <span class="sub">Hire contract dev · iCal 2-way sync working · WhatsApp + AI flow v1 · payments integration started · internal end-to-end test · 2 cleaning partnerships signed</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Customers</div><div class="value">0</div></div>
-      <div class="stat"><div class="label">Waitlist</div><div class="value">200</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$5–7k</div></div>
-      <div class="stat"><div class="label">Build progress</div><div class="value">~60%</div></div>
-    </div>
-    <ul class="clean">
-      <li>Hire 1 contract developer (~$3–5k/mo) — Belal screens and onboards</li>
-      <li>Ship: iCal 2-way sync working for Airbnb, Booking.com, Vrbo, Expedia</li>
-      <li>Ship: booking inbox + WhatsApp Business API connected</li>
-      <li>Ship: first version of AI pre-arrival flow (Claude API)</li>
-      <li>Start Tap + Stripe Connect integration (paid bookings)</li>
-      <li>Internal end-to-end test: 1 mock property going through the full flow</li>
-      <li>Mahmoud signs first 2 cleaning-company partnerships</li>
-      <li>Cold outbound starts: 25 Airbnb hosts/week</li>
-    </ul>
+    <div class="goal">0 clients</div>
   </div>
 
-  <!-- August -->
-  <div class="month-block beta">
-    <div class="month-head">
-      <span class="month-tag">August 2026 · Month 3</span>
-      <h3>Closed Beta — 5 Design Partners (FREE)</h3>
-      <span class="target">Goal: 5 properties live in production</span>
+  <div class="month-row beta">
+    <div class="when">Aug · M3</div>
+    <div class="what">
+      <strong>Closed Beta (5 free design partners)</strong>
+      <span class="sub">5 properties live in production · weekly feedback calls · payments end-to-end · onboarding wizard done · daily bug triage</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Live properties</div><div class="value">5</div></div>
-      <div class="stat"><div class="label">Paying clients</div><div class="value">0</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$5–7k</div></div>
-      <div class="stat"><div class="label">Build progress</div><div class="value">~85%</div></div>
-    </div>
-    <ul class="clean">
-      <li>Onboard 5 design partners — free for 3 months, 30-min weekly feedback call required</li>
-      <li>Mahmoud or Belal sets up each property personally (60-min Zoom each)</li>
-      <li>Daily bug triage from production usage</li>
-      <li>Ship: payments end-to-end (Tap + Stripe Connect tested with real bookings)</li>
-      <li>Ship: onboarding wizard cuts setup time to &lt;30 min</li>
-      <li>Pricing page drafted (not yet public)</li>
-      <li>Mahmoud publishes 8 more SEO articles + 1 comparison page (vs Lodgify)</li>
-    </ul>
-    <div class="callout">
-      <strong>Honest checkpoint at end of August:</strong> If the 5 design partners aren't actively using the product weekly with positive feedback, do not move to paid pilots — fix the product first. Don't push to launch with a broken V1.
-    </div>
+    <div class="goal">0 paying</div>
   </div>
 
-  <!-- September -->
-  <div class="month-block beta">
-    <div class="month-head">
-      <span class="month-tag">September 2026 · Month 4</span>
-      <h3>Paid Pilots — 50% off for 6 months</h3>
-      <span class="target">Goal: 5 paying customers</span>
+  <div class="month-row beta">
+    <div class="when">Sep · M4</div>
+    <div class="what">
+      <strong>Paid Pilots (50% off, 6 months)</strong>
+      <span class="sub">Convert 2 design partners + acquire 3 new pilots · Stripe/Tap live · soft launch landing page · Day-7 / Day-30 check-ins</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Paying clients</div><div class="value">5</div></div>
-      <div class="stat"><div class="label">MRR</div><div class="value">~$200</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$5–7k</div></div>
-      <div class="stat"><div class="label">Status</div><div class="value">Soft launch</div></div>
-    </div>
-    <ul class="clean">
-      <li>Convert 2 of the 5 design partners to paid pilots at 50% off</li>
-      <li>Acquire 3 new paid pilots from network + cleaning partnerships</li>
-      <li>Stripe / Tap live in production</li>
-      <li>Demo Loom v2 finalized (3 min, polished)</li>
-      <li>Soft-launch landing page (pricing visible, sign-up open)</li>
-      <li>Day-7 / Day-30 check-ins with all 5 customers</li>
-      <li>Bug-fix &amp; polish week at end of month</li>
-    </ul>
+    <div class="goal">5 paying</div>
   </div>
 
-  <!-- October -->
-  <div class="month-block launch">
-    <div class="month-head">
-      <span class="month-tag">October 2026 · Month 5</span>
-      <h3>Public Launch 🚀</h3>
-      <span class="target">Goal: +5 customers (total: 10)</span>
+  <div class="month-row launch">
+    <div class="when">Oct · M5</div>
+    <div class="what">
+      <strong>🚀 Public Launch</strong>
+      <span class="sub">Pricing live · ProductHunt (optional) · press to 3 publications · 50 outbound/week · 3rd–4th cleaning partnership · 1st case study · Capterra listing</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Paying clients</div><div class="value">10</div></div>
-      <div class="stat"><div class="label">MRR</div><div class="value">~$500</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$5–8k</div></div>
-      <div class="stat"><div class="label">Status</div><div class="value">Live to public</div></div>
-    </div>
-    <ul class="clean">
-      <li>Full public launch — pricing live, no special discount above plan rate</li>
-      <li>ProductHunt launch (optional, only if confident)</li>
-      <li>Press outreach to 3 vertical publications (Skift, ShortTermRentalz, hospitality blogs)</li>
-      <li>Scale outbound: 50 Airbnb hosts/week</li>
-      <li>3rd &amp; 4th cleaning partnership signed</li>
-      <li>1st customer case study published</li>
-      <li>Capterra + GetApp listings live (~$500–1,000/mo)</li>
-      <li>Week-4 review: measure CAC per channel, double down on the winner</li>
-    </ul>
+    <div class="goal">10 paying</div>
   </div>
 
-  <!-- November -->
-  <div class="month-block scale">
-    <div class="month-head">
-      <span class="month-tag">November 2026 · Month 6</span>
-      <h3>Scale What's Working</h3>
-      <span class="target">Goal: +5 customers (total: 15)</span>
+  <div class="month-row scale">
+    <div class="when">Nov · M6</div>
+    <div class="what">
+      <strong>Scale What's Working</strong>
+      <span class="sub">First commission-only sales rep · double budget on winning channel · 2 features from customer feedback · 2nd–3rd case study · BFCM promo</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Paying clients</div><div class="value">15</div></div>
-      <div class="stat"><div class="label">MRR</div><div class="value">~$1,000</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$6–9k</div></div>
-      <div class="stat"><div class="label">Status</div><div class="value">Scaling</div></div>
-    </div>
-    <ul class="clean">
-      <li>Hire first commission-only sales rep (25% of Y1 ACV per closed deal)</li>
-      <li>Double the budget on the acquisition channel that's working best</li>
-      <li>Ship 2–3 features requested most by Aug–Oct customers</li>
-      <li>2nd &amp; 3rd customer case studies published</li>
-      <li>Begin Airbnb direct API integration (certification application — 2–3 month process)</li>
-      <li>Black Friday / Cyber Monday promotion (3 months free on annual)</li>
-      <li>Day-60 NPS survey to all customers</li>
-    </ul>
+    <div class="goal">15 paying</div>
   </div>
 
-  <!-- December -->
-  <div class="month-block scale">
-    <div class="month-head">
-      <span class="month-tag">December 2026 · Month 7</span>
-      <h3>Close the Year at 20</h3>
-      <span class="target">Goal: +5 customers (total: 20) + 2027 plan</span>
+  <div class="month-row scale">
+    <div class="when">Dec · M7</div>
+    <div class="what">
+      <strong>Close the Year</strong>
+      <span class="sub">5 more customers · year-end review · 2027 planning offsite · draft pre-seed deck · 3–5 warm investor intros</span>
     </div>
-    <div class="month-stats">
-      <div class="stat"><div class="label">Paying clients</div><div class="value">20</div></div>
-      <div class="stat"><div class="label">MRR</div><div class="value">~$1.5–2k</div></div>
-      <div class="stat"><div class="label">Cash out</div><div class="value">$6–9k</div></div>
-      <div class="stat"><div class="label">Output</div><div class="value">2027 plan</div></div>
-    </div>
-    <ul class="clean">
-      <li>Continue acquisition cadence — aim for 5 new customers</li>
-      <li>Final year-end review: retention, CAC, NPS, top-requested features</li>
-      <li>Day-90 case-study + referral ask with every customer that hit 3 months</li>
-      <li>Mahmoud + Belal week-long planning offsite (Dec 20–27) to plan 2027</li>
-      <li>Draft pre-seed deck (just draft — don't raise yet)</li>
-      <li>Identify 3–5 warm intros to MENA-friendly angels &amp; pre-seed funds</li>
-      <li>Holiday email to all customers + waitlist with year-in-review</li>
-    </ul>
+    <div class="goal">20 paying</div>
   </div>
-</section>
 
-<!-- TRAJECTORY CHARTS -->
-<section>
-  <h2><span class="num">09</span>Trajectory</h2>
-  <p class="section-sub">Monthly customer growth, MRR, and cash burn — the only three numbers worth watching weekly.</p>
-
-  <div class="grid grid-2">
+  <div class="grid grid-2" style="margin-top:18px;">
     <div class="chart-card">
-      <div class="title">Paying customers by month</div>
-      <div class="sub">May 2026 → December 2026</div>
+      <div class="title">Customers by month</div>
+      <div class="sub">Cumulative paying clients</div>
       <div class="chart-wrap"><canvas id="customerChart"></canvas></div>
     </div>
     <div class="chart-card">
-      <div class="title">MRR by month (USD)</div>
-      <div class="sub">Includes 50% pilot discount through November</div>
-      <div class="chart-wrap"><canvas id="mrrChart"></canvas></div>
-    </div>
-  </div>
-
-  <div class="grid grid-2" style="margin-top:20px;">
-    <div class="chart-card">
       <div class="title">Monthly cash burn</div>
-      <div class="sub">Bootstrapped — no founder salaries included</div>
+      <div class="sub">Stacked by category — no founder salaries</div>
       <div class="chart-wrap"><canvas id="burnChart"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="title">Where the cash goes (full Phase 1)</div>
-      <div class="sub">Total: ~$40–55k across 7.5 months</div>
-      <div class="chart-wrap"><canvas id="cashPie"></canvas></div>
     </div>
   </div>
 </section>
 
-<!-- CASH PLAN -->
+<!-- CASH -->
 <section>
-  <h2><span class="num">10</span>Cash Plan</h2>
-  <p class="section-sub">Bootstrapped. No salaries for Mahmoud or Belal during Phase 1 — both live on personal savings. Every dollar listed below is real out-of-pocket.</p>
+  <h2><span class="num">04</span>The Cash</h2>
+  <p class="section-sub">Bootstrapped. No salaries for Mahmoud or Belal — both live on personal savings. $35–55k out-of-pocket across 7.5 months.</p>
   <table class="tbl">
     <thead>
       <tr><th>Line item</th><th>Monthly</th><th>Phase 1 total</th></tr>
     </thead>
     <tbody>
-      <tr><td>Infra &amp; SaaS (Vercel, Neon, Cloudflare, etc.)</td><td>$300–800</td><td>$3–6k</td></tr>
-      <tr><td>API costs (Claude, WhatsApp Business, Twilio)</td><td>$200–800</td><td>$2–5k</td></tr>
-      <tr><td>Marketing (Capterra, ads, content tools)</td><td>$500–2,000</td><td>$5–12k</td></tr>
       <tr><td>Contract developer (Months 3–7)</td><td>$3,000–5,000</td><td>$15–25k</td></tr>
-      <tr><td>Legal, accounting, incorporation</td><td>$300–500</td><td>$3–5k</td></tr>
-      <tr><td>Domain, design tools, misc.</td><td>$100–300</td><td>$1–2k</td></tr>
-      <tr><td><strong>Total Phase 1 cash needed</strong></td><td>—</td><td><strong>$35–60k</strong></td></tr>
+      <tr><td>Marketing (Capterra, ads, content)</td><td>$500–2,000</td><td>$5–12k</td></tr>
+      <tr><td>Infra &amp; SaaS</td><td>$300–800</td><td>$3–6k</td></tr>
+      <tr><td>API costs (Claude, WhatsApp)</td><td>$200–800</td><td>$2–5k</td></tr>
+      <tr><td>Legal, incorporation, misc</td><td>$300–500</td><td>$3–5k</td></tr>
+      <tr><td><strong>Total Phase 1</strong></td><td>—</td><td><strong>$35–55k</strong></td></tr>
     </tbody>
   </table>
   <div class="callout green">
-    <strong>How to fund it:</strong> Bootstrapped from founder savings, split 50/50 between Mahmoud and Belal. If runway gets tight in Months 5–7, take a friends-and-family check of $50–100k at the cheapest possible terms — don't open the pre-seed conversation until 2027.
+    <strong>How to fund it:</strong> Founder savings, split 50/50. If runway tightens in Months 5–7, take a small friends-and-family check at the cheapest possible terms. Don't open the pre-seed conversation until 2027.
   </div>
 </section>
 
-<!-- RISKS -->
+<!-- WHAT COULD KILL THIS -->
 <section>
-  <h2><span class="num">11</span>Top Risks for Phase 1</h2>
-  <p class="section-sub">Five things most likely to kill the plan. Plan for them now.</p>
+  <h2><span class="num">05</span>What Could Kill This</h2>
+  <p class="section-sub">Five risks, ranked. Each has one specific mitigation.</p>
   <div class="card">
-    <h4>Risk 1 — Calendar sync bugs</h4>
-    <p>Double-bookings will lose customers in days, not weeks. <strong>Mitigation:</strong> Belal builds a sync test suite from week 1. Stress-test with 50 concurrent bookings before any public launch.</p>
-    <div class="divider"></div>
-    <h4>Risk 2 — Slipping launch timeline</h4>
-    <p>If V1 isn't ready by October, we miss the 20-customer goal. <strong>Mitigation:</strong> Hire contract dev in July. Cut scope aggressively (no smart locks, no mobile app, no analytics dashboard in V1).</p>
-    <div class="divider"></div>
-    <h4>Risk 3 — Wrong customer acquisition channels</h4>
-    <p>If Channels 1–3 don't deliver the first 10 customers by October, we have 3 months left to find another channel. <strong>Mitigation:</strong> Weekly CAC-per-channel review. Kill any channel that hasn't produced a customer by Month 4.</p>
-    <div class="divider"></div>
-    <h4>Risk 4 — Founder bandwidth</h4>
-    <p>Two people doing 5 jobs each for 7.5 months will burn out. <strong>Mitigation:</strong> One full day off per week, non-negotiable. Hire the contract dev specifically to relieve Belal's workload.</p>
-    <div class="divider"></div>
-    <h4>Risk 5 — Pricing too low</h4>
-    <p>$29–79/mo for 1–5 properties may not cover CAC. <strong>Mitigation:</strong> Test annual prepay early. If first 10 customers all pick Growth ($79), consider raising prices to $99 for new customers in Q4.</p>
+    <h4>1 — Calendar sync bugs</h4>
+    <p>Double-bookings will lose customers in days. <strong>Fix:</strong> Belal builds sync test suite Week 1. No public launch until 50 concurrent simulated bookings pass.</p>
+    <h4>2 — Slipping the October launch</h4>
+    <p>If V1 isn't ready by Oct, we miss 20 customers. <strong>Fix:</strong> Hire contract dev in July. Cut scope aggressively if any feature is at risk.</p>
+    <h4>3 — Channels 1–3 don't deliver</h4>
+    <p>If we don't have 10 customers by end of Oct, the year-end goal is gone. <strong>Fix:</strong> Weekly CAC-per-channel review. Kill any channel without a customer by Month 4.</p>
+    <h4>4 — Founder burnout</h4>
+    <p>Two people, 7.5 months, 5 hats each. <strong>Fix:</strong> One full day off per week, non-negotiable. Contract dev relieves Belal in Month 3.</p>
+    <h4>5 — Pricing too low</h4>
+    <p>$29–79 may not cover CAC. <strong>Fix:</strong> If first 10 customers all pick Growth, raise new-customer pricing to $99 in Q4.</p>
   </div>
 </section>
 
-<!-- FIRST 30 DAYS -->
+<!-- CLOSING -->
 <section>
-  <h2><span class="num">12</span>Your First 30 Days (May 16 – June 15)</h2>
-  <p class="section-sub">A focused week-by-week breakdown for the kick-off period. If these four weeks go well, the rest of the year is on track.</p>
-
-  <div class="grid grid-2">
-    <div class="card">
-      <h4>Week 1 (May 16–22)</h4>
-      <ul class="clean">
-        <li>Incorporate + founder agreement signed</li>
-        <li>Domain + Google Workspace + GitHub org set up</li>
-        <li>Repo &amp; database scaffold (Belal)</li>
-        <li>Brand basics: logo, fonts, color (Mahmoud)</li>
-        <li>Landing page v0 with waitlist (Mahmoud)</li>
-        <li>Book 10 user interviews for next 2 weeks</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h4>Week 2 (May 23–29)</h4>
-      <ul class="clean">
-        <li>5 user interviews completed (Mahmoud)</li>
-        <li>Website builder skeleton + 1 template (Belal)</li>
-        <li>Outreach plan: 50 personal contacts on the list</li>
-        <li>First SEO article published</li>
-        <li>First 2 cleaning-company partnership intros sent</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h4>Week 3 (May 30 – Jun 5)</h4>
-      <ul class="clean">
-        <li>5 more user interviews (Mahmoud)</li>
-        <li>Website builder: 3 templates live, RTL working</li>
-        <li>iCal sync prototype reads Airbnb feed</li>
-        <li>2nd SEO article + first demo Loom</li>
-        <li>Send 30 personal-network messages individually</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h4>Week 4 (Jun 6–12)</h4>
-      <ul class="clean">
-        <li>10 more user interviews (total: 20)</li>
-        <li>iCal 2-way sync working (write back to Airbnb iCal)</li>
-        <li>Identify 5 design partners from the 20 interviews</li>
-        <li>3rd &amp; 4th SEO article + 2nd Loom</li>
-        <li>Cleaning company outreach: 15 conversations started</li>
-        <li>Waitlist target: 50 signups by end of week</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="callout green">
-    <strong>Definition of "first 30 days went well":</strong> 20 user interviews done, 5 design partners verbally committed, working website builder demo, iCal sync prototype, waitlist of 50+, 4 SEO articles indexed, 2 demo Looms posted, 3 cleaning partnership conversations in progress.
-  </div>
-</section>
-
-<!-- BOTTOM LINE -->
-<section>
-  <h2><span class="num">13</span>The Bottom Line</h2>
   <div class="card dark">
-    <p style="color:#e2e8f0; font-size: 16px;">
-      The next 7.5 months have one job: <strong style="color:white;">prove someone will pay us for this product</strong>. Twenty paying customers by December 31 is the only number that matters. Everything else — the perfect feature set, the slick brand, the long-term strategy — is noise until that's done.
-    </p>
-    <p style="color:#e2e8f0; font-size: 16px; margin-top: 12px;">
-      <strong style="color:white;">Mahmoud</strong> is full-time on getting customers — interviews, outreach, demos, content, partnerships, support. <strong style="color:white;">Belal</strong> is full-time on shipping a V1 that the first 20 customers won't churn from. One contract developer joins in Month 3 to keep velocity up. No other hires. No office. No fundraising — yet.
-    </p>
-    <p style="color:#e2e8f0; font-size: 16px; margin-top: 12px;">
-      If we end December 2026 with 20 happy paying customers and a stable V1, we have all the leverage we need to plan 2027 from a position of strength — investors, hires, geography, the whole thing. If we don't, we'll know exactly what to fix.
-    </p>
-    <p style="color:#e2e8f0; font-size: 16px; margin-top: 12px;">
-      <strong style="color:white;">Now go build.</strong>
+    <p style="color:#e2e8f0; font-size: 16px; margin:0;">
+      <strong style="color:white;">The only number that matters: 20 paying customers on Dec 31, 2026.</strong> Mahmoud finds them. Belal builds something they won't churn from. One contract dev keeps the build on schedule. No office, no team, no fundraising — yet. Hit 20 by year-end and 2027 plans itself.
     </p>
   </div>
 </section>
 
 <footer>
-  Phase 1 Plan · May 16 → December 31, 2026 · Mahmoud &amp; Belal · Prepared May 16, 2026
+  Phase 1 Plan · May 16 → December 31, 2026 · Mahmoud &amp; Belal
 </footer>
 
 </div>
 
 <script>
   const palette = {
-    brand: '#1e3a8a',
-    brand2: '#0ea5e9',
-    accent: '#f97316',
-    accent2: '#10b981',
-    gold: '#f59e0b',
-    purple: '#8b5cf6',
-    pink: '#ec4899',
-    gray: '#94a3b8',
+    brand: '#1e3a8a', brand2: '#0ea5e9', accent: '#f97316', accent2: '#10b981', gray: '#94a3b8',
   };
   Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
   Chart.defaults.color = '#475569';
   Chart.defaults.borderColor = '#e6e8ef';
-
   const months = ['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
-  // Customer growth
   new Chart(document.getElementById('customerChart'), {
     type: 'bar',
     data: {
@@ -910,7 +540,7 @@
         label: 'Paying clients',
         data: [0, 0, 0, 0, 5, 10, 15, 20],
         backgroundColor: ctx => {
-          const c = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280);
+          const c = ctx.chart.ctx.createLinearGradient(0, 0, 0, 260);
           c.addColorStop(0, palette.accent);
           c.addColorStop(1, palette.brand);
           return c;
@@ -925,67 +555,23 @@
     }
   });
 
-  // MRR
-  new Chart(document.getElementById('mrrChart'), {
-    type: 'line',
-    data: {
-      labels: months,
-      datasets: [{
-        label: 'MRR (USD)',
-        data: [0, 0, 0, 0, 200, 500, 1000, 1700],
-        borderColor: palette.brand2,
-        backgroundColor: 'rgba(14,165,233,0.15)',
-        fill: true, tension: 0.35,
-        pointRadius: 4, pointBackgroundColor: palette.brand,
-      }]
-    },
-    options: {
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v.toLocaleString() } } }
-    }
-  });
-
-  // Cash burn by month
   new Chart(document.getElementById('burnChart'), {
     type: 'bar',
     data: {
       labels: months,
       datasets: [
-        { label: 'Infra + SaaS', data: [0.4, 0.5, 0.7, 0.9, 1.0, 1.2, 1.4, 1.5], backgroundColor: palette.brand2, stack: 's' },
-        { label: 'APIs', data: [0.2, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], backgroundColor: palette.brand, stack: 's' },
-        { label: 'Marketing', data: [0.5, 1.0, 1.5, 1.5, 2.0, 3.0, 3.5, 3.5], backgroundColor: palette.accent, stack: 's' },
         { label: 'Contract dev', data: [0, 0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0], backgroundColor: palette.accent2, stack: 's' },
+        { label: 'Marketing', data: [0.5, 1.0, 1.5, 1.5, 2.0, 3.0, 3.5, 3.5], backgroundColor: palette.accent, stack: 's' },
+        { label: 'Infra + APIs', data: [0.6, 0.8, 1.2, 1.5, 1.7, 2.0, 2.3, 2.5], backgroundColor: palette.brand2, stack: 's' },
         { label: 'Legal/misc', data: [2.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5], backgroundColor: palette.gray, stack: 's' },
       ]
     },
     options: {
       maintainAspectRatio: false,
-      plugins: { legend: { position: 'bottom' } },
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
       scales: {
         x: { stacked: true },
         y: { stacked: true, ticks: { callback: v => '$' + v + 'k' } }
-      }
-    }
-  });
-
-  // Cash pie
-  new Chart(document.getElementById('cashPie'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Contract developer', 'Marketing', 'Infra + SaaS', 'API costs', 'Legal + misc'],
-      datasets: [{
-        data: [22, 13, 5, 4, 4],
-        backgroundColor: [palette.accent2, palette.accent, palette.brand2, palette.brand, palette.gray],
-        borderWidth: 2,
-        borderColor: '#fff',
-      }]
-    },
-    options: {
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { position: 'right', labels: { boxWidth: 12 } },
-        tooltip: { callbacks: { label: c => c.label + ': ~$' + c.parsed + 'k' } }
       }
     }
   });
