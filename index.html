@@ -161,9 +161,27 @@
   .channel .target { text-align: right; font-weight: 700; color: var(--accent); font-size: 13px; white-space: nowrap; }
   @media (max-width: 768px) { .channel .target { text-align: left; } }
 
+  /* V2 section */
+  .v2-card {
+    background: linear-gradient(135deg, #0b1020 0%, #1e3a8a 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 26px;
+    box-shadow: var(--shadow);
+  }
+  .v2-card h3 { color: white; font-size: 18px; margin: 0 0 8px; }
+  .v2-card p { color: #cbd5e1; }
+  .v2-card ul.clean li { color: #cbd5e1; }
+  .v2-card ul.clean li::before { background: linear-gradient(135deg, #38bdf8, #f97316); }
+  .v2-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+  @media (max-width: 768px) { .v2-grid { grid-template-columns: 1fr; } }
+  .v2-tile { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 14px; }
+  .v2-tile h4 { color: #38bdf8; font-size: 11px; margin: 0 0 6px; }
+  .v2-tile strong { color: white; font-size: 15px; display: block; margin-bottom: 4px; }
+  .v2-tile span { color: #cbd5e1; font-size: 12.5px; }
+
   footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 12px; }
 
-  /* Mobile */
   @media (max-width: 768px) {
     .hero h1 { font-size: 22px; }
     .hero .meta { gap: 6px 14px; flex-direction: column; font-size: 12px; }
@@ -190,6 +208,7 @@
     section { margin-top: 18px; page-break-inside: avoid; }
     h2 { font-size: 16px; }
     .chart-wrap { height: 180px; }
+    .v2-card { background: #0b1020 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .card, .channel, .month-row, .chart-card, .price-card, table.tbl { box-shadow: none; }
   }
 </style>
@@ -201,10 +220,10 @@
 <div class="hero">
   <span class="pill">Phase 1 · May 16 → Dec 31, 2026</span>
   <h1>Ship V1. Win 20 Clients. <span>Done by Dec 31.</span></h1>
-  <p class="lead">7.5 months. Two co-founders, no salaries, no team. Public launch in October. The whole document is what it takes to hit 20 paying property owners by year-end.</p>
+  <p class="lead">7.5 months. Two co-founders, no salaries, no team. Pure inbound — no cold calls until next year. Public launch in October.</p>
   <div class="meta">
-    <div><strong>Mahmoud</strong> · Heads marketing &amp; manages the sales process (and the 3-person sales team once Phase 2 starts)</div>
-    <div><strong>Belal</strong> · Owns the product &amp; engineering — builds with Claude Code</div>
+    <div><strong>Mahmoud</strong> · Marketing, partnerships &amp; inbound — joins demos with a commission-only sales partner</div>
+    <div><strong>Belal</strong> · Product &amp; engineering — builds with Claude Code</div>
   </div>
 </div>
 
@@ -224,11 +243,11 @@
     <div class="card kpi accent">
       <div class="label">Year-end MRR</div>
       <div class="value">~$780</div>
-      <div class="delta">20 clients × $39 avg/property</div>
+      <div class="delta">20 clients × $39 avg/month</div>
     </div>
     <div class="card kpi accent">
       <div class="label">Cash needed</div>
-      <div class="value">$15–25k</div>
+      <div class="value">$15–30k</div>
       <div class="delta">Bootstrapped, no salaries</div>
     </div>
   </div>
@@ -237,22 +256,22 @@
 <!-- §1 V1 + PRICING -->
 <section>
   <h2><span class="num">01</span>The Product &amp; Pricing</h2>
-  <p class="section-sub">Belal ships V1 by October using Claude Code as the build accelerator. Aggressively scoped. Everything not below waits until Phase 2.</p>
+  <p class="section-sub">Belal ships V1 by October using Claude Code. Three flat monthly plans — no per-property fees. Most customers land on Growth ($39/mo).</p>
 
   <div class="grid grid-2">
     <div class="card">
       <h4 style="color:var(--accent-2);">Ship by October</h4>
       <ul class="clean">
         <li><strong>Owner website builder</strong> — 5 templates, RTL/AR, custom domain, photo gallery</li>
-        <li><strong>Unified calendar</strong> — iCal 2-way sync to Airbnb, Booking.com, Vrbo, Expedia (no double-bookings)</li>
-        <li><strong>AI guest-message replies</strong> — auto-replies to Airbnb, Booking.com, and Vrbo guest chats in the host's voice, in any language</li>
+        <li><strong>Unified calendar</strong> — iCal 2-way sync to Airbnb, Booking.com, Vrbo, Expedia</li>
+        <li><strong>AI guest-message replies</strong> — auto-replies to Airbnb / Booking / Vrbo guest chats in the host's voice, in any language</li>
         <li><strong>Payments</strong> — Tap (MENA) + Stripe Connect (global)</li>
         <li><strong>30-min onboarding wizard</strong></li>
         <li><strong>Basic analytics</strong> — bookings, channel performance, revenue</li>
       </ul>
     </div>
     <div class="card">
-      <h4 style="color:var(--warn);">Not in V1 — explicitly cut</h4>
+      <h4 style="color:var(--warn);">Not in V1 — cut on purpose</h4>
       <ul class="clean">
         <li>Direct OTA API integrations (iCal is enough)</li>
         <li>Dynamic pricing engine</li>
@@ -265,27 +284,27 @@
     </div>
   </div>
 
-  <h3 style="margin-top:18px;">Pricing — three tiers, priced per property per month</h3>
+  <h3 style="margin-top:18px;">Pricing — flat monthly subscription</h3>
   <div class="pricing-grid">
     <div class="price-card">
       <div class="name">Starter</div>
-      <div class="price">$19<small>/property/mo</small></div>
+      <div class="price">$19<small>/month</small></div>
       <div class="desc">Solo Airbnb hosts<br/>1 property</div>
     </div>
     <div class="price-card featured">
       <div class="badge">Most clients</div>
       <div class="name">Growth</div>
-      <div class="price">$39<small>/property/mo</small></div>
+      <div class="price">$39<small>/month</small></div>
       <div class="desc">Small operators<br/>Up to 5 properties</div>
     </div>
     <div class="price-card">
       <div class="name">Pro</div>
-      <div class="price">$59<small>/property/mo</small></div>
+      <div class="price">$59<small>/month</small></div>
       <div class="desc">Property managers<br/>Up to 15 properties</div>
     </div>
   </div>
   <div class="callout blue">
-    <strong>Discount structure:</strong> First 5 customers (design partners) get 3 months free for weekly feedback. Customers 6–15 get 50% off for 6 months (paid pilots). Customers 16–20 pay full price. 14-day free trial on everything, no credit card upfront.
+    <strong>Onboarding ladder:</strong> First 5 clients (design partners) get 3 months free for weekly feedback. Clients 6–15 get 50% off for 6 months (paid pilots). Clients 16–20 pay full price. 14-day free trial on everything, no card upfront.
   </div>
 
   <p style="margin-top:10px;">
@@ -300,55 +319,56 @@
   </p>
 </section>
 
-<!-- §2 ACQUISITION -->
+<!-- §2 ACQUISITION (INBOUND ONLY) -->
 <section>
-  <h2><span class="num">02</span>How We Win 20 Clients</h2>
-  <p class="section-sub">Dubai market first. Mahmoud runs every touchpoint personally in Phase 1 — he's the entire &ldquo;sales team&rdquo; until the investor closes and we hire 3 reps in Phase 2.</p>
+  <h2><span class="num">02</span>How We Win 20 Clients — Inbound Only</h2>
+  <p class="section-sub">No cold calls in Phase 1. Mahmoud builds the inbound funnel through content, partnerships, and direct messages. On any demo that books, he pairs with a commission-only sales partner to close.</p>
 
   <div class="chart-card">
-    <div class="title">The funnel — 800 conversations → 20 clients</div>
-    <div class="sub">Conservative conversion across all 6 channels combined.</div>
+    <div class="title">The funnel — 500 quality conversations → 20 clients</div>
+    <div class="sub">Inbound leads convert better than cold outreach. Numbers assume Dubai market.</div>
     <div style="margin-top:8px;">
-      <div class="funnel-row"><div class="funnel-label">Conversations started</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">800</div></div><div class="funnel-count">800</div></div>
-      <div class="funnel-row"><div class="funnel-label">Demos booked</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:25%;">25%</div></div><div class="funnel-count">200</div></div>
-      <div class="funnel-row"><div class="funnel-label">Demos attended</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:16%;">16%</div></div><div class="funnel-count">125</div></div>
-      <div class="funnel-row"><div class="funnel-label">Pilots started</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:7%;">7%</div></div><div class="funnel-count">55</div></div>
-      <div class="funnel-row"><div class="funnel-label">Paying customers</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:2.5%;">2.5%</div></div><div class="funnel-count">20</div></div>
+      <div class="funnel-row"><div class="funnel-label">Inbound conversations</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;">500</div></div><div class="funnel-count">500</div></div>
+      <div class="funnel-row"><div class="funnel-label">Demos booked</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:30%;">30%</div></div><div class="funnel-count">150</div></div>
+      <div class="funnel-row"><div class="funnel-label">Demos attended</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:24%;">24%</div></div><div class="funnel-count">120</div></div>
+      <div class="funnel-row"><div class="funnel-label">Pilots started</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:10%;">10%</div></div><div class="funnel-count">50</div></div>
+      <div class="funnel-row"><div class="funnel-label">Paying clients</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:4%;">4%</div></div><div class="funnel-count">20</div></div>
     </div>
   </div>
 
-  <h3 style="margin-top:18px;">Six channels — Dubai-first, priority order</h3>
+  <h3 style="margin-top:18px;">Six inbound channels — Dubai-first</h3>
 
-  <div class="channel"><div class="rank">1</div><div class="body"><strong>Dubai network &amp; warm connections</strong><span>Personal contacts &amp; intros to Dubai property owners. Individual Loom videos, one-by-one outreach. Highest trust, fastest close.</span></div><div class="target">→ 5 clients</div></div>
+  <div class="channel"><div class="rank">1</div><div class="body"><strong>Dubai network &amp; warm intros</strong><span>List 50 owners in the personal network. Loom video + individual message. Intros via friends-of-friends. Highest-trust path.</span></div><div class="target">→ 4 clients</div></div>
 
-  <div class="channel"><div class="rank">2</div><div class="body"><strong>LinkedIn outreach</strong><span>Cross-reference Airbnb / Booking host listings in Dubai with LinkedIn. Send personalized DMs to property managers and investors.</span></div><div class="target">→ 4 clients</div></div>
+  <div class="channel"><div class="rank">2</div><div class="body"><strong>LinkedIn content &amp; personal brand</strong><span>Mahmoud posts 3×/week on vacation-rental tips and Dubai market insights. Builds inbound — hosts DM him after reading the posts.</span></div><div class="target">→ 4 clients</div></div>
 
-  <div class="channel"><div class="rank">3</div><div class="body"><strong>Direct outreach to Airbnb &amp; Booking hosts</strong><span>Scrape public listings → find host contact (Instagram / WhatsApp / email) → property-specific message: "I noticed your apartment in [area] — 15-min demo?"</span></div><div class="target">→ 5 clients</div></div>
+  <div class="channel"><div class="rank">3</div><div class="body"><strong>Direct messages to Airbnb / Booking hosts</strong><span>Scrape public Dubai listings → find host on Instagram / LinkedIn / WhatsApp → personalized DM referencing their property. Not cold-call, written/online only.</span></div><div class="target">→ 4 clients</div></div>
 
-  <div class="channel"><div class="rank">4</div><div class="body"><strong>Cold calls</strong><span>For listings where a phone number is published. 30 dials/week from Month 2. Short script, book the demo, hang up.</span></div><div class="target">→ 3 clients</div></div>
+  <div class="channel"><div class="rank">4</div><div class="body"><strong>Affiliate &amp; partnership network</strong><span>Cleaning companies, real-estate agents, concierge services. 20% rev-share on first year. Each partner has 10–50 owner contacts.</span></div><div class="target">→ 4 clients</div></div>
 
-  <div class="channel"><div class="rank">5</div><div class="body"><strong>Organic Google / SEO</strong><span>2 blog posts/week from Week 1. Target keywords: &ldquo;vacation rental software Dubai&rdquo;, &ldquo;Airbnb channel manager UAE&rdquo;, &ldquo;property manager software Dubai&rdquo;. Plays out in 2027 mostly.</span></div><div class="target">→ 2 clients</div></div>
+  <div class="channel"><div class="rank">5</div><div class="body"><strong>Organic Google / SEO</strong><span>2 blog posts/week from Week 1. Keywords: "vacation rental software Dubai", "Airbnb channel manager UAE", "Dubai short-term rental management".</span></div><div class="target">→ 2 clients</div></div>
 
-  <div class="channel"><div class="rank">6</div><div class="body"><strong>Dubai property-management WhatsApp groups</strong><span>Join 10 Dubai-specific groups. Be useful 30 days before pitching. Slow burn, high referral rate.</span></div><div class="target">→ 1 client</div></div>
+  <div class="channel"><div class="rank">6</div><div class="body"><strong>Dubai property-management WhatsApp / Telegram groups</strong><span>Join 10 local groups. Be useful 30 days before pitching. Slow-burn, high-referral.</span></div><div class="target">→ 2 clients</div></div>
 
   <div class="grid grid-2" style="margin-top:14px;">
     <div class="card">
-      <h4>Demo process</h4>
+      <h4>Demo process — Mahmoud + commission-only closer</h4>
       <ul class="clean">
-        <li>Mahmoud runs every demo personally for the first 20</li>
-        <li>Pre-call: 2-min Loom + 1-pager (halves no-shows)</li>
+        <li>Mahmoud books and runs the discovery; sales partner leads the close</li>
+        <li>Sales partner paid per demo attended + bonus on close</li>
+        <li>Pre-call: 2-min Loom + 1-pager sent the day before</li>
         <li>30 min: 5 discovery → 15 demo → 5 pricing → 5 commit</li>
-        <li>Proposal sent within 24h, 7-day acceptance window</li>
+        <li>Proposal sent within 24h, 7-day deadline</li>
         <li>Follow up at +3d, +7d, +14d</li>
       </ul>
     </div>
     <div class="card">
       <h4>First-customer success</h4>
       <ul class="clean">
-        <li>White-glove onboarding: 60-min Zoom each, listings set up by us</li>
-        <li>Day 7 / 30 / 60 / 90 check-ins</li>
+        <li>White-glove onboarding: 60-min Zoom, listings set up by us</li>
+        <li>Day 7 / 30 / 60 / 90 check-ins on calendar</li>
         <li>Day 90: case-study interview + referral ask</li>
-        <li>Customer WhatsApp group — community, not support tickets</li>
+        <li>Customer WhatsApp group — community, not a support ticket</li>
       </ul>
     </div>
   </div>
@@ -359,25 +379,25 @@
   <h2><span class="num">03</span>The 7-Month Plan</h2>
   <p class="section-sub">One focus per month. Hit it or stop and re-plan.</p>
 
-  <div class="month-row foundation"><div class="when">May 16–31</div><div class="what"><strong>Foundation</strong><span class="sub">Incorporate · founder agreement · domain · landing page · repo &amp; DB scaffold · 10 user interviews booked</span></div><div class="goal">0 clients</div></div>
+  <div class="month-row foundation"><div class="when">May 16–31</div><div class="what"><strong>Foundation</strong><span class="sub">Incorporate · founder agreement · domain · landing page · repo &amp; DB scaffold · 10 user interviews booked · LinkedIn profile optimized</span></div><div class="goal">0 clients</div></div>
 
-  <div class="month-row build"><div class="when">June · M1</div><div class="what"><strong>Discover &amp; Build Sprint 1</strong><span class="sub">30 user interviews · website builder + 3 templates · iCal sync prototype · 8 SEO posts · 100 waitlist signups · LinkedIn outreach starts (50/week)</span></div><div class="goal">0 clients</div></div>
+  <div class="month-row build"><div class="when">June · M1</div><div class="what"><strong>Discover &amp; Build Sprint 1</strong><span class="sub">30 user interviews · website builder + 3 templates · iCal sync prototype · 8 SEO posts · 12 LinkedIn posts (Mahmoud) · 100 waitlist signups · first 3 partnership conversations</span></div><div class="goal">0 clients</div></div>
 
-  <div class="month-row build"><div class="when">July · M2</div><div class="what"><strong>Build Sprint 2</strong><span class="sub">iCal 2-way sync working · AI guest-reply engine v1 · payments integration · cold-outbound to 100 Airbnb hosts · 30 cold calls/week</span></div><div class="goal">0 clients</div></div>
+  <div class="month-row build"><div class="when">July · M2</div><div class="what"><strong>Build Sprint 2</strong><span class="sub">iCal 2-way sync working · AI guest-reply engine v1 · payments integration · LinkedIn DMs to 50 hosts/week · 2 partnerships signed · waitlist hits 200</span></div><div class="goal">0 clients</div></div>
 
-  <div class="month-row beta"><div class="when">Aug · M3</div><div class="what"><strong>Closed Beta (5 free design partners)</strong><span class="sub">5 properties live in production · weekly feedback calls · payments end-to-end · onboarding wizard · daily bug triage</span></div><div class="goal">0 paying</div></div>
+  <div class="month-row beta"><div class="when">Aug · M3</div><div class="what"><strong>Closed Beta (5 free design partners)</strong><span class="sub">5 properties live · weekly feedback calls · payments end-to-end · onboarding wizard · daily bug triage · first commission-only sales partner identified</span></div><div class="goal">0 paying</div></div>
 
-  <div class="month-row beta"><div class="when">Sep · M4</div><div class="what"><strong>Paid Pilots (50% off, 6 months)</strong><span class="sub">Convert 2 design partners + acquire 3 new pilots · Stripe/Tap live · soft launch landing page · Day-7 / 30 check-ins</span></div><div class="goal">5 paying</div></div>
+  <div class="month-row beta"><div class="when">Sep · M4</div><div class="what"><strong>Paid Pilots (50% off, 6 months)</strong><span class="sub">Convert 2 design partners + acquire 3 new pilots from inbound · Stripe/Tap live · soft launch landing page · Day-7 / 30 check-ins</span></div><div class="goal">5 paying</div></div>
 
-  <div class="month-row launch"><div class="when">Oct · M5</div><div class="what"><strong>🚀 Public Launch</strong><span class="sub">Pricing live · press to 3 publications · 100 outbound/week · LinkedIn scaled · 1st case study · Capterra listing</span></div><div class="goal">10 paying</div></div>
+  <div class="month-row launch"><div class="when">Oct · M5</div><div class="what"><strong>🚀 Public Launch</strong><span class="sub">Pricing live · press to 3 publications · LinkedIn posts daily · 4–5 partnerships active · 1st case study · Capterra listing</span></div><div class="goal">10 paying</div></div>
 
-  <div class="month-row scale"><div class="when">Nov · M6</div><div class="what"><strong>Scale What's Working</strong><span class="sub">Double-down on winning channel · 2 features from customer feedback · 2nd–3rd case study · BFCM promo · investor warm intros</span></div><div class="goal">15 paying</div></div>
+  <div class="month-row scale"><div class="when">Nov · M6</div><div class="what"><strong>Scale What's Working</strong><span class="sub">Double-budget on winning channel · 2 features from customer feedback · 2nd–3rd case study · BFCM promo · investor warm intros</span></div><div class="goal">15 paying</div></div>
 
-  <div class="month-row scale"><div class="when">Dec · M7</div><div class="what"><strong>Close the Year</strong><span class="sub">5 more customers · year-end review · 2027 plan · finalize investor deck · Phase 2 hiring brief ready</span></div><div class="goal">20 paying</div></div>
+  <div class="month-row scale"><div class="when">Dec · M7</div><div class="what"><strong>Close the Year</strong><span class="sub">5 more clients · year-end review · finalize investor deck · sign LOIs from investor leads · Phase 2 job descriptions written</span></div><div class="goal">20 paying</div></div>
 
   <div class="grid grid-2" style="margin-top:14px;">
     <div class="chart-card">
-      <div class="title">Customers by month</div>
+      <div class="title">Clients by month</div>
       <div class="sub">Cumulative paying clients</div>
       <div class="chart-wrap"><canvas id="customerChart"></canvas></div>
     </div>
@@ -389,23 +409,24 @@
   </div>
 </section>
 
-<!-- §4 CASH + RISKS + NEXT -->
+<!-- §4 CASH + RISKS -->
 <section>
-  <h2><span class="num">04</span>Cash, Risks &amp; What Comes Next</h2>
+  <h2><span class="num">04</span>Cash &amp; Risks</h2>
   <p class="section-sub">Bootstrapped from founder savings. No salaries until Phase 2.</p>
 
   <div class="grid grid-2">
     <div>
-      <h4>Phase 1 cash plan ($15–25k total)</h4>
+      <h4>Phase 1 cash plan ($15–30k total)</h4>
       <table class="tbl">
         <thead><tr><th>Line item</th><th>Total</th></tr></thead>
         <tbody>
-          <tr><td>Marketing (LinkedIn tools, Capterra, content)</td><td>$5–10k</td></tr>
+          <tr><td>Marketing (LinkedIn tools, content, partnerships)</td><td>$5–10k</td></tr>
+          <tr><td>Demo commissions (sales partner)</td><td>$3–6k</td></tr>
           <tr><td>Infra &amp; SaaS (Vercel, Neon, Cloudflare)</td><td>$3–6k</td></tr>
           <tr><td>APIs (Claude, scraping, comms)</td><td>$2–4k</td></tr>
-          <tr><td>Claude Code subscription (Belal)</td><td>$0.5–1k</td></tr>
+          <tr><td>Claude Code subscription</td><td>$0.5–1k</td></tr>
           <tr><td>Legal, incorporation, domain, misc</td><td>$3–5k</td></tr>
-          <tr><td><strong>Total</strong></td><td><strong>$15–25k</strong></td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>$15–30k</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -413,15 +434,60 @@
     <div>
       <h4>Top 3 risks</h4>
       <div class="card" style="padding:14px;">
-        <p style="margin:4px 0;"><strong>1 — Calendar sync bugs.</strong> Double-bookings lose customers in days. Belal builds sync test suite Week 1; no launch until 50 concurrent bookings pass.</p>
-        <p style="margin:8px 0 4px;"><strong>2 — Slipping October launch.</strong> Belal solo on the build. Mitigation: cut scope aggressively before missing the date.</p>
-        <p style="margin:8px 0 4px;"><strong>3 — Channels 1–3 don't deliver.</strong> If we don't hit 10 customers by end of October, year-end goal is gone. Weekly channel review; kill any channel without a customer by Month 4.</p>
+        <p style="margin:4px 0;"><strong>1 — Calendar sync bugs.</strong> Double-bookings lose customers in days. Belal builds sync test suite Week 1; no launch until 50 concurrent bookings pass cleanly.</p>
+        <p style="margin:8px 0 4px;"><strong>2 — Slipping October launch.</strong> Belal solo on the build. Cut scope aggressively before missing the date — V1 ships even if a feature is dropped.</p>
+        <p style="margin:8px 0 4px;"><strong>3 — Inbound channels don't deliver.</strong> All 6 channels are inbound — if they don't produce 10 clients by end of October, we have 2 months left to course-correct. Weekly channel review starting Month 1.</p>
       </div>
     </div>
   </div>
+</section>
+
+<!-- §5 V2 (PHASE 2 PREVIEW) -->
+<section>
+  <h2><span class="num">05</span>V2 — Start of 2027</h2>
+  <p class="section-sub">Triggered the day Phase 1 closes: 20 paying clients, V1 stable, 90%+ retention. Everything below begins in January 2027.</p>
+
+  <div class="v2-card">
+    <h3>The shift from solo bootstrap → funded team</h3>
+    <p>Phase 1 was inbound-only with two co-founders. Phase 2 adds capital, a real team, and outbound sales. Mahmoud's role expands from running inbound himself to managing the 3-person sales team. Belal's role expands from solo builder to engineering lead.</p>
+
+    <div class="v2-grid">
+      <div class="v2-tile">
+        <h4>Trigger</h4>
+        <strong>20 paying clients secured</strong>
+        <span>+ V1 stable + 90%+ retention + investor signed term sheet</span>
+      </div>
+      <div class="v2-tile">
+        <h4>Capital</h4>
+        <strong>Pre-seed closed</strong>
+        <span>Founders start drawing salaries · runway extends to 18+ months</span>
+      </div>
+      <div class="v2-tile">
+        <h4>Office</h4>
+        <strong>Small Dubai office</strong>
+        <span>Co-working or shared space, ~$3–5k/month</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top:18px;">5 hires in Q1 2027</h3>
+    <ul class="clean">
+      <li><strong>1 developer</strong> — relieves Belal; owns integrations and the second engineer seat</li>
+      <li><strong>1 marketer</strong> — owns content, SEO, paid ads, brand, and email</li>
+      <li><strong>3 sales reps</strong> — outbound cold calls and demos, managed directly by Mahmoud</li>
+    </ul>
+
+    <h3 style="margin-top:18px;">What V2 unlocks</h3>
+    <ul class="clean">
+      <li>Outbound sales motion — the cold calls we deliberately didn't run in Phase 1 start now</li>
+      <li>Scale from 20 → 100+ paying clients over 2027</li>
+      <li>Direct API integrations with Airbnb (Connectivity Partner certification kicks off Jan)</li>
+      <li>Expand beyond Dubai — KSA + wider GCC, then test US in Q4 2027</li>
+      <li>Move toward $30–50k MRR exit-of-2027</li>
+    </ul>
+  </div>
 
   <div class="callout green">
-    <strong>What comes after Phase 1 (Jan 2027):</strong> Close the investor, founders start drawing salaries, and hire 5 — <strong>1 developer</strong> (relieves Belal), <strong>1 marketer</strong>, and <strong>3 sales reps</strong> (outbound cold calls + demos). Mahmoud moves from running every demo himself to managing the 3-person sales team. The 20 paying customers we close in Phase 1 are the proof that unlocks all of it.
+    <strong>The single condition that unlocks Phase 2:</strong> 20 paying clients on Dec 31, 2026 with proof they stay. Mahmoud finds them through inbound. Belal builds something they don't churn from. Hit that and everything else — the investor, the office, the team, the outbound motion — falls into place.
   </div>
 </section>
 
@@ -466,7 +532,7 @@
     data: {
       labels: months,
       datasets: [
-        { label: 'Marketing', data: [0.3, 0.8, 1.2, 1.5, 2.0, 2.8, 3.0, 3.0], backgroundColor: palette.accent, stack: 's' },
+        { label: 'Marketing + commissions', data: [0.3, 0.8, 1.2, 1.5, 2.2, 3.0, 3.2, 3.2], backgroundColor: palette.accent, stack: 's' },
         { label: 'Infra + APIs', data: [0.4, 0.7, 1.0, 1.3, 1.5, 1.8, 2.0, 2.2], backgroundColor: palette.brand2, stack: 's' },
         { label: 'Legal/misc', data: [2.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4], backgroundColor: palette.gray, stack: 's' },
       ]
