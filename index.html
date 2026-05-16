@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Walego 2.0 — Full SaaS Business Plan</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0b1020;
+    --bg-soft: #111733;
+    --panel: #ffffff;
+    --panel-soft: #f6f8fc;
+    --border: #e6e8ef;
+    --text: #0f172a;
+    --muted: #475569;
+    --brand: #1e3a8a;
+    --brand-2: #0ea5e9;
+    --accent: #f97316;
+    --accent-2: #10b981;
+    --warn: #ef4444;
+    --gold: #f59e0b;
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--panel-soft); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.55; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    background: radial-gradient(1200px 600px at 10% 0%, rgba(14,165,233,0.25), transparent 60%),
+                radial-gradient(900px 500px at 100% 20%, rgba(249,115,22,0.18), transparent 60%),
+                linear-gradient(135deg, #0b1020 0%, #111733 60%, #1e3a8a 120%);
+    color: white;
+    border-radius: 24px;
+    padding: 56px 48px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .hero h1 { font-size: 44px; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .hero h1 span { background: linear-gradient(90deg, #38bdf8, #f97316); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { font-size: 18px; max-width: 780px; color: #cbd5e1; margin: 0 0 28px; }
+  .hero .meta { display: flex; flex-wrap: wrap; gap: 24px; color: #cbd5e1; font-size: 14px; }
+  .hero .meta strong { color: white; }
+  .pill { display: inline-block; padding: 6px 12px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; color: #e2e8f0; }
+
+  /* SECTION */
+  section { margin-top: 56px; }
+  h2 { font-size: 30px; margin: 0 0 8px; letter-spacing: -0.01em; color: var(--text); }
+  h2 .num { display: inline-block; min-width: 38px; height: 38px; line-height: 38px; text-align: center; background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; border-radius: 10px; font-size: 16px; margin-right: 12px; vertical-align: middle; font-weight: 700; }
+  h3 { font-size: 20px; margin: 24px 0 8px; color: var(--text); }
+  h4 { font-size: 16px; margin: 16px 0 6px; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; }
+  p { color: var(--muted); margin: 8px 0; }
+  .section-sub { color: var(--muted); font-size: 15px; margin-bottom: 24px; max-width: 880px; }
+
+  /* CARDS */
+  .grid { display: grid; gap: 20px; }
+  .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  @media (max-width: 900px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .hero { padding: 36px 24px; }
+    .hero h1 { font-size: 30px; }
+    .wrap { padding: 20px 14px 60px; }
+  }
+
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .card.dark { background: linear-gradient(135deg, #111733, #1e293b); color: #e2e8f0; border: none; }
+  .card.dark p, .card.dark li { color: #cbd5e1; }
+  .card.flat { box-shadow: none; }
+
+  .kpi { display: flex; flex-direction: column; gap: 4px; padding: 18px; }
+  .kpi .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  .kpi .value { font-size: 28px; font-weight: 700; color: var(--text); }
+  .kpi .delta { font-size: 13px; color: var(--accent-2); font-weight: 600; }
+  .kpi.brand .value { background: linear-gradient(90deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .kpi.accent .value { color: var(--accent); }
+
+  ul.clean { list-style: none; padding-left: 0; margin: 6px 0; }
+  ul.clean li { position: relative; padding: 6px 0 6px 22px; color: var(--muted); font-size: 14.5px; }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-2), var(--accent)); }
+
+  /* PHASE BLOCK */
+  .phase {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-top: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0; width: 6px;
+    background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  }
+  .phase.p0::before { background: linear-gradient(180deg, #94a3b8, #475569); }
+  .phase.p1::before { background: linear-gradient(180deg, #1e3a8a, #0ea5e9); }
+  .phase.p15::before { background: linear-gradient(180deg, #0ea5e9, #10b981); }
+  .phase.p2::before { background: linear-gradient(180deg, #f97316, #f59e0b); }
+  .phase.p3::before { background: linear-gradient(180deg, #ef4444, #f97316); }
+  .phase.p4::before { background: linear-gradient(180deg, #8b5cf6, #ec4899); }
+
+  .phase-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+  .phase-head .badge { background: var(--bg-soft); color: white; padding: 6px 12px; border-radius: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .phase-head .when { color: var(--muted); font-size: 14px; }
+  .phase h3 { margin: 0; font-size: 22px; }
+
+  .phase-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 8px; }
+  @media (max-width: 900px) { .phase-stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--panel-soft); border-radius: 10px; padding: 12px 14px; }
+  .stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .stat .value { font-weight: 700; font-size: 16px; color: var(--text); margin-top: 4px; }
+
+  /* TABLE */
+  table.tbl { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  table.tbl th, table.tbl td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14.5px; }
+  table.tbl th { background: var(--panel-soft); font-weight: 600; color: var(--text); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+  table.tbl tr:last-child td { border-bottom: none; }
+  table.tbl tr:hover td { background: #fafbfd; }
+
+  /* CHART */
+  .chart-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .chart-card .title { font-weight: 700; color: var(--text); margin-bottom: 4px; font-size: 16px; }
+  .chart-card .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  .chart-wrap { position: relative; height: 320px; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 28px; margin-top: 16px; }
+  .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(180deg, var(--brand-2), var(--accent)); }
+  .tl-item { position: relative; padding: 8px 0 12px 8px; }
+  .tl-item::before { content: ""; position: absolute; left: -23px; top: 14px; width: 12px; height: 12px; border-radius: 50%; background: white; border: 3px solid var(--brand-2); }
+  .tl-item .month { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .tl-item .what { font-weight: 600; color: var(--text); }
+
+  /* TAGS */
+  .tag { display: inline-block; padding: 4px 10px; background: #eef2ff; color: #3730a3; border-radius: 999px; font-size: 12px; margin: 3px 4px 3px 0; font-weight: 500; }
+  .tag.green { background: #ecfdf5; color: #065f46; }
+  .tag.orange { background: #fff7ed; color: #9a3412; }
+  .tag.red { background: #fef2f2; color: #991b1b; }
+  .tag.gray { background: #f1f5f9; color: #334155; }
+
+  /* MAP */
+  .geo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    position: relative;
+  }
+  @media (max-width: 900px) { .geo { grid-template-columns: 1fr; } }
+  .geo .market {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .geo .market.first { border-top: 4px solid var(--accent-2); }
+  .geo .market.second { border-top: 4px solid var(--brand-2); }
+  .geo .market.third { border-top: 4px solid var(--accent); }
+  .geo .market .order { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .geo .market h4 { color: var(--text); margin: 6px 0 8px; font-size: 18px; letter-spacing: 0; text-transform: none; }
+
+  /* RISK */
+  .risk-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .risk-row:last-child { border-bottom: none; }
+  @media (max-width: 900px) { .risk-row { grid-template-columns: 1fr; } }
+  .risk-label { font-weight: 600; color: var(--text); }
+
+  /* CALLOUT */
+  .callout { background: linear-gradient(135deg, #fff7ed, #fef3c7); border: 1px solid #fed7aa; padding: 18px 20px; border-radius: var(--radius); color: #7c2d12; }
+  .callout strong { color: #7c2d12; }
+  .callout.blue { background: linear-gradient(135deg, #eff6ff, #e0f2fe); border-color: #bae6fd; color: #1e3a8a; }
+  .callout.blue strong { color: #1e3a8a; }
+  .callout.green { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border-color: #6ee7b7; color: #065f46; }
+  .callout.green strong { color: #065f46; }
+
+  /* ORG CHART */
+  .org { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 10px; }
+  @media (max-width: 900px) { .org { grid-template-columns: repeat(2, 1fr); } }
+  .node { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; font-size: 13px; box-shadow: var(--shadow); }
+  .node .role { font-weight: 600; color: var(--text); }
+  .node .who { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .node.founder { background: linear-gradient(135deg, #1e3a8a, #0ea5e9); color: white; border: none; }
+  .node.founder .role, .node.founder .who { color: white; }
+  .node.hire { background: linear-gradient(135deg, #f97316, #f59e0b); color: white; border: none; }
+  .node.hire .role, .node.hire .who { color: white; }
+  .node.contract { background: #f1f5f9; color: var(--text); }
+
+  /* Footer */
+  footer { text-align: center; margin-top: 60px; color: var(--muted); font-size: 13px; }
+
+  .divider { height: 1px; background: var(--border); margin: 18px 0; }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .hero { background: #0b1020 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <span class="pill">Strategic Business Plan · v1.0 · May 2026</span>
+  <h1>Building a Better <span>Lodgify</span><br/>The full roadmap from 2 founders to scaled SaaS.</h1>
+  <p class="lead">A short-term rental operating system with an unfair MENA wedge, AI-native guest experience, and a clear path from MVP to a 5-person UAE team to global expansion. Built for two co-founders bootstrapping with discipline.</p>
+  <div class="meta">
+    <div><strong>Prepared for:</strong> Mahmoud Samir (Co-founder, Marketing &amp; Ops)</div>
+    <div><strong>Co-founder:</strong> Product &amp; Engineering Lead</div>
+    <div><strong>Horizon:</strong> 5 years</div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY KPIs -->
+<section>
+  <h2><span class="num">01</span>Executive Summary at a Glance</h2>
+  <p class="section-sub">The numbers below are the realistic targets across the full plan. Detailed assumptions, ranges, and triggers are explained in each phase.</p>
+  <div class="grid grid-4">
+    <div class="card kpi brand">
+      <div class="label">Cash to MVP launch</div>
+      <div class="value">$40–80k</div>
+      <div class="delta">+ founder living costs</div>
+    </div>
+    <div class="card kpi brand">
+      <div class="label">Time to 10 paying customers</div>
+      <div class="value">9 mo</div>
+      <div class="delta">From kickoff</div>
+    </div>
+    <div class="card kpi accent">
+      <div class="label">Phase 2 trigger</div>
+      <div class="value">100 clients</div>
+      <div class="delta">$15k+ MRR, 90%+ retention</div>
+    </div>
+    <div class="card kpi accent">
+      <div class="label">Pre-seed target</div>
+      <div class="value">$750k–$1.5M</div>
+      <div class="delta">Month 18–24</div>
+    </div>
+    <div class="card kpi brand">
+      <div class="label">Year-3 ARR target</div>
+      <div class="value">$1.2M+</div>
+      <div class="delta">~600 customers</div>
+    </div>
+    <div class="card kpi brand">
+      <div class="label">Year-5 ARR target</div>
+      <div class="value">$8–15M</div>
+      <div class="delta">Series A profile</div>
+    </div>
+    <div class="card kpi accent">
+      <div class="label">Total team Y5</div>
+      <div class="value">35–55</div>
+      <div class="delta">UAE + remote + US sales</div>
+    </div>
+    <div class="card kpi accent">
+      <div class="label">Capital required</div>
+      <div class="value">$5–10M</div>
+      <div class="delta">Bootstrapped + Seed + Series A</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE OPPORTUNITY -->
+<section>
+  <h2><span class="num">02</span>The Opportunity</h2>
+  <p class="section-sub">Short-term rental software is a $1.5B+ global market growing 14% annually. The category leaders are crowded in the US and Europe, but underserved in MENA — and almost none of them have built AI-native guest workflows. That gap is our entry.</p>
+
+  <div class="grid grid-2">
+    <div class="chart-card">
+      <div class="title">Global Short-Term Rental SaaS — Market Size (USD)</div>
+      <div class="sub">Estimated revenue across PMS, channel manager &amp; ancillary software, 2024–2030</div>
+      <div class="chart-wrap"><canvas id="marketChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="title">Where the Competition Is Concentrated</div>
+      <div class="sub">Approximate competitor density by region (lower = whitespace)</div>
+      <div class="chart-wrap"><canvas id="regionChart"></canvas></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px;">Competitive Landscape</h3>
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>Competitor</th>
+        <th>HQ</th>
+        <th>Focus</th>
+        <th>Pricing</th>
+        <th>Weakness We Exploit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Lodgify</strong></td><td>Barcelona</td><td>Website builder + PMS</td><td>$13–74/mo</td><td>Weak MENA presence, no Arabic/RTL, dated AI</td></tr>
+      <tr><td><strong>Hostaway</strong></td><td>Helsinki/US</td><td>PMS + channel mgr</td><td>$200+/mo</td><td>Expensive, US-centric, complex onboarding</td></tr>
+      <tr><td><strong>Guesty</strong></td><td>Tel Aviv/US</td><td>Enterprise PMS</td><td>$500+/mo</td><td>Targets 20+ units, ignores SMB owners</td></tr>
+      <tr><td><strong>Hospitable</strong></td><td>US</td><td>Automation + messaging</td><td>$40–100/mo</td><td>Airbnb-only origin, weak booking sites</td></tr>
+      <tr><td><strong>iGMS / Smoobu / OwnerRez</strong></td><td>US/EU</td><td>Mid-market PMS</td><td>$25–80/mo</td><td>Generic, no AI, no MENA payment rails</td></tr>
+      <tr><td><strong>Walego 2.0 (us)</strong></td><td>UAE → Global</td><td>AI-native PMS with website builder</td><td>$29–99/mo</td><td>—</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- STRATEGIC WEDGES -->
+<section>
+  <h2><span class="num">03</span>Three Strategic Wedges</h2>
+  <p class="section-sub">A bootstrapped 2-person team cannot win on parity. We win on three sharp wedges that compound: a beautiful website builder, AI-native guest operations, and MENA-first payments &amp; language.</p>
+  <div class="grid grid-3">
+    <div class="card">
+      <h4>Wedge 1</h4>
+      <h3 style="margin-top:4px;">Owner Website Builder</h3>
+      <p>Stunning, fast, multi-language (incl. Arabic/RTL) websites for property owners — Lodgify's original wedge, but with a 2026 design language and a real CMS. Demos beautifully, drives organic SEO bookings, and works even before the channel manager.</p>
+      <div><span class="tag">Templates</span><span class="tag">RTL</span><span class="tag">SEO</span><span class="tag green">Demo-friendly</span></div>
+    </div>
+    <div class="card">
+      <h4>Wedge 2</h4>
+      <h3 style="margin-top:4px;">AI Check-in / Check-out</h3>
+      <p>WhatsApp-native pre-arrival flow, automated access codes, multilingual concierge, AI damage detection from post-stay photos, and review collection. This is fresh territory — none of the incumbents have built it well.</p>
+      <div><span class="tag">WhatsApp</span><span class="tag">Anthropic API</span><span class="tag">Smart locks</span><span class="tag orange">Differentiator</span></div>
+    </div>
+    <div class="card">
+      <h4>Wedge 3</h4>
+      <h3 style="margin-top:4px;">MENA-Native Stack</h3>
+      <p>Tap, Paymob, HyperPay payment rails. Arabic UI. Compliance with UAE/KSA short-term rental regulations. The kind of local fit no Barcelona or San Francisco product will replicate.</p>
+      <div><span class="tag">AED/SAR</span><span class="tag">Tap</span><span class="tag">Paymob</span><span class="tag green">Defensible</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GEOGRAPHIC STRATEGY -->
+<section>
+  <h2><span class="num">04</span>Geographic Strategy</h2>
+  <p class="section-sub">Reversing the original plan: <strong>MENA first</strong> (because your network + low competition + Arabic wedge), <strong>US second</strong> (because that's where the money is, but only with proof), and <strong>Europe third</strong>. Starting in the US with a 2-person team operating from outside it is the most common way new SaaS startups burn out.</p>
+
+  <div class="geo">
+    <div class="market first">
+      <div class="order">Market 1 · Year 1–2</div>
+      <h4>UAE · KSA · Egypt</h4>
+      <p>Sell through your existing Walego network and partners. CAC: $150–400. Win Arabic + local payments. Goal: 100+ paying customers, $15k+ MRR.</p>
+      <div><span class="tag green">Low CAC</span><span class="tag green">Low competition</span><span class="tag">Fast feedback loop</span></div>
+    </div>
+    <div class="market second">
+      <div class="order">Market 2 · Year 2–4</div>
+      <h4>United States</h4>
+      <p>Attack after Pre-Seed. Hire US-based Head of Sales. Capterra/G2 plays + VRMA trade shows. CAC: $800–1,500. Higher ACV, longer cycles.</p>
+      <div><span class="tag orange">High CAC</span><span class="tag">Highest ARPU</span><span class="tag">Brand-building</span></div>
+    </div>
+    <div class="market third">
+      <div class="order">Market 3 · Year 3–5</div>
+      <h4>Europe (Spain, Italy, France, Portugal)</h4>
+      <p>Country-by-country. Localized product. Compete head-on with Lodgify on home turf only once we have $5M ARR and a defensible product.</p>
+      <div><span class="tag red">Toughest</span><span class="tag">Localized</span><span class="tag">High-volume VR markets</span></div>
+    </div>
+  </div>
+
+  <div class="callout blue" style="margin-top:24px;">
+    <strong>Why this matters financially:</strong> A MENA-first launch cuts CAC by 60–75% vs. US-first, lets you validate with 10 customers in 3 months instead of 9, and gives you case studies + revenue to raise a stronger Pre-Seed when you do go to the US.
+  </div>
+</section>
+
+<!-- PHASES OVERVIEW -->
+<section>
+  <h2><span class="num">05</span>The Six Phases</h2>
+  <p class="section-sub">Each phase has a clear trigger to move to the next. Don't skip Phase 1.5 — most failed SaaS startups skip it.</p>
+
+  <div class="chart-card">
+    <div class="title">Phase Timeline &amp; Burn Profile</div>
+    <div class="sub">Monthly cash burn across phases (USD, midpoint estimates)</div>
+    <div class="chart-wrap" style="height:340px;"><canvas id="burnChart"></canvas></div>
+  </div>
+
+  <!-- PHASE 0 -->
+  <div class="phase p0">
+    <div class="phase-head">
+      <span class="badge">Phase 0</span>
+      <h3>Foundation</h3>
+      <span class="when">Month 0–1 · ~$3–7k cash</span>
+    </div>
+    <p>Incorporate, sign founder agreements with vesting, set up tools, write the founding doc. The boring legal phase that protects you when things go right or wrong.</p>
+    <div class="phase-stats">
+      <div class="stat"><div class="label">Team</div><div class="value">2 founders</div></div>
+      <div class="stat"><div class="label">Duration</div><div class="value">4–6 weeks</div></div>
+      <div class="stat"><div class="label">Cash out</div><div class="value">$3–7k</div></div>
+      <div class="stat"><div class="label">Output</div><div class="value">Cap table + PRD</div></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:14px;">
+      <div>
+        <h4>What you do</h4>
+        <ul class="clean">
+          <li>Incorporate (Delaware C-Corp + UAE Free Zone subsidiary later — most flexible)</li>
+          <li>Co-founder agreement with 4-year vesting, 1-year cliff (non-negotiable)</li>
+          <li>Equity split conversation (50/50 vs 55/45 — write it down)</li>
+          <li>Stripe Atlas or Clerky for paperwork ($500)</li>
+          <li>Trademark "Walego 2.0" + domain + Google Workspace</li>
+          <li>Notion / Linear setup, shared GitHub org</li>
+          <li>Open business bank account</li>
+        </ul>
+      </div>
+      <div>
+        <h4>What you need</h4>
+        <ul class="clean">
+          <li>~$2k incorporation, ~$1k legal templates, ~$300 trademarks</li>
+          <li>Lawyer for 2 hours of review (~$500–1,000)</li>
+          <li>12+ months of personal savings runway, each</li>
+          <li>NDA + contractor agreement templates ready</li>
+          <li>One-page founding doc: vision, who-does-what, decision rights, exit clause</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase p1">
+    <div class="phase-head">
+      <span class="badge">Phase 1</span>
+      <h3>MVP &amp; First 10 Paying Customers</h3>
+      <span class="when">Month 1–9 · $40–80k cash + founder living costs</span>
+    </div>
+    <p>Ship the wedge product. Get 10 paying customers in MENA who would be sad if you took it away. Resist every temptation to scope creep.</p>
+    <div class="phase-stats">
+      <div class="stat"><div class="label">Team</div><div class="value">2 founders + 1 contractor</div></div>
+      <div class="stat"><div class="label">Duration</div><div class="value">8–9 months</div></div>
+      <div class="stat"><div class="label">Cash out</div><div class="value">$40–80k</div></div>
+      <div class="stat"><div class="label">Trigger to next</div><div class="value">10 paying customers</div></div>
+    </div>
+
+    <h4>v1 Product scope — ship only this</h4>
+    <div class="grid grid-2">
+      <div>
+        <ul class="clean">
+          <li><strong>Property owner website builder</strong> — templated, RTL/Arabic, custom domain, booking widget, photos</li>
+          <li><strong>Unified calendar</strong> with iCal 2-way sync (Airbnb, Booking.com, Vrbo, Expedia)</li>
+          <li><strong>Booking inbox</strong> — routes inquiries to email + WhatsApp</li>
+          <li><strong>AI check-in flow</strong> — WhatsApp pre-arrival, access codes, multilingual concierge</li>
+          <li><strong>Single payment provider</strong> — Tap for MENA, Stripe Connect for everything else</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="margin-top:0;">Explicitly NOT in v1</h4>
+        <ul class="clean">
+          <li>Direct OTA APIs (iCal is enough for v1 — saves 6 months)</li>
+          <li>Dynamic pricing engine</li>
+          <li>Accounting / financial reports</li>
+          <li>Mobile app (mobile web only)</li>
+          <li>Team / sub-user accounts</li>
+          <li>Smart-lock direct integrations (manual codes work)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Recommended Tech Stack</h4>
+    <p>
+      <span class="tag">Next.js 14</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Postgres (Neon)</span>
+      <span class="tag">Prisma ORM</span>
+      <span class="tag">Tailwind</span>
+      <span class="tag">Vercel</span>
+      <span class="tag">Stripe Connect</span>
+      <span class="tag">Tap Payments</span>
+      <span class="tag">Twilio + WhatsApp Business API</span>
+      <span class="tag">Anthropic Claude API</span>
+      <span class="tag">Cloudflare R2</span>
+      <span class="tag">Resend (email)</span>
+      <span class="tag">PostHog (analytics)</span>
+    </p>
+
+    <h4>Who does what</h4>
+    <div class="grid grid-2">
+      <div class="card flat" style="background:var(--panel-soft);">
+        <strong>Mahmoud — Marketing &amp; Ops</strong>
+        <ul class="clean">
+          <li>Marketing site, positioning, SEO content (2 posts/week)</li>
+          <li>First 10 sales calls personally</li>
+          <li>WhatsApp / email support for early users</li>
+          <li>Partnership outreach (cleaning cos, real estate, hospitality)</li>
+          <li>Hire commission-only sales reps from Month 4–5</li>
+          <li>Waitlist building (target: 200 sign-ups before MVP)</li>
+        </ul>
+      </div>
+      <div class="card flat" style="background:var(--panel-soft);">
+        <strong>Co-founder — Product &amp; Engineering</strong>
+        <ul class="clean">
+          <li>End-to-end ownership of the product</li>
+          <li>Infra, CI/CD, security, on-call</li>
+          <li>iCal sync engine (this is harder than it looks)</li>
+          <li>AI workflow design with Claude API</li>
+          <li>Bring in 1 contract dev by Month 4 ($3–6k/mo, Eastern Europe or South Asia)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Phase 1 monthly cash burn</h4>
+    <div class="chart-card" style="margin-top:8px; box-shadow:none; border:1px solid var(--border);">
+      <div class="chart-wrap" style="height:280px;"><canvas id="phase1Burn"></canvas></div>
+    </div>
+  </div>
+
+  <!-- PHASE 1.5 -->
+  <div class="phase p15">
+    <div class="phase-head">
+      <span class="badge">Phase 1.5</span>
+      <h3>Get to 100 Customers (Pre-Investment)</h3>
+      <span class="when">Month 9–18 · $50–120k cash</span>
+    </div>
+    <p>The phase most founders skip. Going from 10 to 100 retained customers takes 9–12 months and is where you find product–market fit. Don't open the UAE office until this is done.</p>
+    <div class="phase-stats">
+      <div class="stat"><div class="label">Team</div><div class="value">2 founders + 1 dev + 1 VA + commission reps</div></div>
+      <div class="stat"><div class="label">Duration</div><div class="value">9 months</div></div>
+      <div class="stat"><div class="label">Cash out</div><div class="value">$50–120k</div></div>
+      <div class="stat"><div class="label">Trigger to next</div><div class="value">100 customers · $15k MRR · 90% retention</div></div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:14px;">
+      <div>
+        <h4>Product priorities</h4>
+        <ul class="clean">
+          <li>Stability &amp; bug-hardening from real usage data</li>
+          <li>First direct API integration: Airbnb (3–4 months including certification)</li>
+          <li>Improved analytics for owners (booking conversion, channel attribution)</li>
+          <li>Onboarding wizard (cut time-to-first-listing to &lt;30 minutes)</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Growth priorities</h4>
+        <ul class="clean">
+          <li>Commission-only sales reps (25% of Y1 ACV per closed deal)</li>
+          <li>SEO content engine: 80+ articles by Month 18</li>
+          <li>Partner deals: cleaning companies, photographers, real estate</li>
+          <li>Capterra / GetApp listings (~$500–1,500/mo, pay-to-play)</li>
+          <li>One referral case study per closed customer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:18px;">
+      <strong>Honest warning:</strong> If you're not at 30+ customers by Month 12, the product isn't right — pause sales spend and re-interview customers. Don't push to 50 with a broken product or you'll lose them all to churn in Phase 2.
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase p2">
+    <div class="phase-head">
+      <span class="badge">Phase 2</span>
+      <h3>UAE Office, Pre-Seed Raise, 5-Person Team</h3>
+      <span class="when">Month 18–36 · $400–500k/yr burn (funded)</span>
+    </div>
+    <p>Time to professionalize. Raise pre-seed, open the UAE office, build the first real team. Your job changes from "doing everything" to "hiring and managing".</p>
+    <div class="phase-stats">
+      <div class="stat"><div class="label">Team</div><div class="value">7 total (2 founders + 5 hires)</div></div>
+      <div class="stat"><div class="label">Duration</div><div class="value">18 months</div></div>
+      <div class="stat"><div class="label">Pre-seed</div><div class="value">$750k–$1.5M</div></div>
+      <div class="stat"><div class="label">Trigger to next</div><div class="value">$30k+ MRR · NRR &gt;105%</div></div>
+    </div>
+
+    <h4>Team structure (Org chart)</h4>
+    <div class="org">
+      <div class="node founder"><div class="role">CEO</div><div class="who">Mahmoud (Marketing, Sales, Ops)</div></div>
+      <div class="node founder"><div class="role">CTO</div><div class="who">Co-founder (Product, Eng)</div></div>
+      <div class="node hire"><div class="role">Senior Engineer</div><div class="who">Integrations / backend</div></div>
+      <div class="node hire"><div class="role">Product Designer</div><div class="who">UI/UX + brand</div></div>
+      <div class="node hire"><div class="role">Sales / BDR</div><div class="who">UAE, demos, outbound</div></div>
+      <div class="node hire"><div class="role">Customer Success</div><div class="who">Multilingual support</div></div>
+      <div class="node hire"><div class="role">Growth Marketer</div><div class="who">SEO, paid, content</div></div>
+    </div>
+
+    <h4>Phase 2 annual budget breakdown</h4>
+    <div class="grid grid-2">
+      <div class="chart-card" style="box-shadow:none; border:1px solid var(--border);">
+        <div class="chart-wrap" style="height:280px;"><canvas id="phase2Pie"></canvas></div>
+      </div>
+      <div>
+        <table class="tbl">
+          <thead>
+            <tr><th>Line item</th><th>Annual</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>5 hires (fully loaded)</td><td>$280–340k</td></tr>
+            <tr><td>Founders' salaries (now paid)</td><td>$80–120k</td></tr>
+            <tr><td>DIC / DIFC office &amp; setup</td><td>$30–50k</td></tr>
+            <tr><td>SaaS, infra &amp; API costs</td><td>$30–50k</td></tr>
+            <tr><td>Marketing &amp; growth</td><td>$60–100k</td></tr>
+            <tr><td>Legal, accounting, compliance</td><td>$15–25k</td></tr>
+            <tr><td>Travel + sales (UAE → US prep)</td><td>$15–25k</td></tr>
+            <tr><td><strong>Total Y2 burn</strong></td><td><strong>$510–710k</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h4>Product additions in Phase 2</h4>
+    <ul class="clean">
+      <li>Direct API integration with Booking.com (Connectivity Partner Program)</li>
+      <li>Direct API integration with Vrbo / Expedia (1–2 quarters of cert work)</li>
+      <li>Owner portal (multi-property management dashboard)</li>
+      <li>Stripe Connect + Tap full payment workflow (collect, hold, refund)</li>
+      <li>Basic financial reports + invoicing</li>
+      <li>AI v2: review collection, upsell flows, damage assessment via photos</li>
+      <li>Multi-user / team accounts (property managers with sub-accounts)</li>
+    </ul>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase p3">
+    <div class="phase-head">
+      <span class="badge">Phase 3</span>
+      <h3>US Expansion + Series A Profile</h3>
+      <span class="when">Month 30–48 · $1.5–3M Series A</span>
+    </div>
+    <p>You're now a 7–15 person team with $300k+ ARR. Time to attack the US with revenue, case studies, and a real product.</p>
+    <div class="phase-stats">
+      <div class="stat"><div class="label">Team</div><div class="value">15–25 total</div></div>
+      <div class="stat"><div class="label">Series A</div><div class="value">$3–6M</div></div>
+      <div class="stat"><div class="label">Key hire</div><div class="value">US-based Head of Sales</div></div>
+      <div class="stat"><div class="label">Trigger to next</div><div class="value">$2M ARR, 110% NRR</div></div>
+    </div>
+    <ul class="clean" style="margin-top:14px;">
+      <li>Hire US-based Head of Sales ($120–180k + equity + commission)</li>
+      <li>Open US C-Corp operations (you incorporated DE in Phase 0 already)</li>
+      <li>Capterra / G2 / GetApp top-3 ranking ($3–8k/mo pay-to-play)</li>
+      <li>VRMA + Skift Short-Term Rental Summit booth</li>
+      <li>Build a US Customer Success team (3–5 people)</li>
+      <li>Tighten unit economics: CAC payback &lt;18 months mandatory</li>
+    </ul>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase p4">
+    <div class="phase-head">
+      <span class="badge">Phase 4</span>
+      <h3>Europe + Multi-Region Maturity</h3>
+      <span class="when">Year 4–5 · Profitable or Series B</span>
+    </div>
+    <p>One country at a time: Spain → Italy → Portugal → France. Hire country reps, localize the product, build trust slowly. Lodgify rules this region — don't pick a head-on fight, pick adjacent positioning (AI-native, mid-market).</p>
+    <div class="phase-stats">
+      <div class="stat"><div class="label">Team</div><div class="value">35–55 total</div></div>
+      <div class="stat"><div class="label">ARR target</div><div class="value">$8–15M</div></div>
+      <div class="stat"><div class="label">Outcome paths</div><div class="value">Series B · Profitable · Acquisition</div></div>
+      <div class="stat"><div class="label">Customer count</div><div class="value">3,000–6,000</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIAL PROJECTIONS -->
+<section>
+  <h2><span class="num">06</span>Financial Projections</h2>
+  <p class="section-sub">All numbers are midpoint estimates. Actuals will vary ±30%. The shape of these curves is more important than the exact values.</p>
+
+  <div class="grid grid-2">
+    <div class="chart-card">
+      <div class="title">Customer Growth Trajectory</div>
+      <div class="sub">Paying customers, end of each quarter</div>
+      <div class="chart-wrap"><canvas id="customerChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="title">MRR Projection</div>
+      <div class="sub">Monthly Recurring Revenue, USD</div>
+      <div class="chart-wrap"><canvas id="mrrChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:20px;">
+    <div class="chart-card">
+      <div class="title">Cumulative Capital Required</div>
+      <div class="sub">Total funding stacked over time</div>
+      <div class="chart-wrap"><canvas id="capChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="title">Headcount Plan</div>
+      <div class="sub">Total team size end of each year</div>
+      <div class="chart-wrap"><canvas id="headcountChart"></canvas></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:30px;">Year-by-year P&amp;L sketch</h3>
+  <table class="tbl">
+    <thead>
+      <tr><th>Year</th><th>Customers (EOY)</th><th>ARR</th><th>Burn</th><th>Headcount</th><th>Capital raised</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Y1</td><td>30–50</td><td>~$30–50k</td><td>$80–140k</td><td>2 + contractor</td><td>$0 (bootstrap)</td></tr>
+      <tr><td>Y2</td><td>150–250</td><td>$200–400k</td><td>$400–550k</td><td>5–7</td><td>$750k–$1.5M pre-seed</td></tr>
+      <tr><td>Y3</td><td>500–800</td><td>$900k–$1.5M</td><td>$1.2–2M</td><td>10–18</td><td>$2–4M seed extension</td></tr>
+      <tr><td>Y4</td><td>1,500–2,500</td><td>$3–5M</td><td>$3–4M</td><td>25–35</td><td>$3–6M Series A</td></tr>
+      <tr><td>Y5</td><td>3,000–6,000</td><td>$8–15M</td><td>$5–7M (or profitable)</td><td>35–55</td><td>Optional Series B</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PRODUCT ROADMAP -->
+<section>
+  <h2><span class="num">07</span>Product Roadmap</h2>
+  <p class="section-sub">Eighteen-month feature-by-feature roadmap. Each milestone unlocks the next phase's revenue.</p>
+  <div class="card">
+    <div class="timeline">
+      <div class="tl-item"><div class="month">Month 1–3</div><div class="what">Website builder MVP (templates, RTL, custom domain)</div></div>
+      <div class="tl-item"><div class="month">Month 2–4</div><div class="what">iCal 2-way sync engine + unified calendar UI</div></div>
+      <div class="tl-item"><div class="month">Month 3–5</div><div class="what">WhatsApp inbox + AI pre-arrival concierge (Claude API)</div></div>
+      <div class="tl-item"><div class="month">Month 4–6</div><div class="what">Tap + Stripe Connect booking payments</div></div>
+      <div class="tl-item"><div class="month">Month 5–7</div><div class="what">Onboarding wizard + analytics dashboard</div></div>
+      <div class="tl-item"><div class="month">Month 7–9</div><div class="what">Public launch · 10 paying customers · Pricing live</div></div>
+      <div class="tl-item"><div class="month">Month 9–12</div><div class="what">Airbnb direct API integration (Phase 1.5)</div></div>
+      <div class="tl-item"><div class="month">Month 12–15</div><div class="what">AI v2 — review collection, upsells, damage detection</div></div>
+      <div class="tl-item"><div class="month">Month 15–18</div><div class="what">Owner portal multi-property + financial reports</div></div>
+      <div class="tl-item"><div class="month">Month 18–24</div><div class="what">Booking.com + Vrbo direct API · Smart-lock integrations</div></div>
+      <div class="tl-item"><div class="month">Month 24–36</div><div class="what">Dynamic pricing engine · US-localized product</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK ARCHITECTURE -->
+<section>
+  <h2><span class="num">08</span>Technical Architecture</h2>
+  <p class="section-sub">Modular monolith on Postgres — the right call for a 1–3 engineer team. Don't microservices yourself into bankruptcy.</p>
+  <div class="grid grid-3">
+    <div class="card">
+      <h4>Frontend</h4>
+      <ul class="clean">
+        <li>Next.js 14 App Router</li>
+        <li>TypeScript everywhere</li>
+        <li>Tailwind + shadcn/ui</li>
+        <li>RTL/Arabic built-in via next-intl</li>
+        <li>Hosted on Vercel</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Backend</h4>
+      <ul class="clean">
+        <li>Next.js API routes (start) → migrate to Fastify if needed</li>
+        <li>Postgres on Neon (serverless)</li>
+        <li>Prisma ORM</li>
+        <li>Redis for queues + caching (Upstash)</li>
+        <li>Inngest or BullMQ for jobs</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Integrations</h4>
+      <ul class="clean">
+        <li>iCal sync (v1) → Direct APIs (v2)</li>
+        <li>Stripe Connect + Tap Payments</li>
+        <li>Twilio + WhatsApp Business API</li>
+        <li>Anthropic Claude API for AI workflows</li>
+        <li>Resend for transactional email</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Data &amp; Observability</h4>
+      <ul class="clean">
+        <li>PostHog (product analytics)</li>
+        <li>Sentry (error tracking)</li>
+        <li>BetterStack (uptime, logs)</li>
+        <li>Cloudflare R2 (file storage)</li>
+        <li>Daily Postgres backups</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>AI Layer</h4>
+      <ul class="clean">
+        <li>Claude Sonnet 4.6 for guest workflows</li>
+        <li>Claude Haiku for low-latency replies</li>
+        <li>Prompt + tool definitions versioned in repo</li>
+        <li>Multilingual: Arabic, English, French, Spanish</li>
+        <li>Safety guardrails on outbound messaging</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Security &amp; Compliance</h4>
+      <ul class="clean">
+        <li>SOC 2 readiness from Day 1 (use Vanta from Month 6)</li>
+        <li>PCI handled by Stripe / Tap (you stay out of scope)</li>
+        <li>GDPR + UAE PDPL data residency plan</li>
+        <li>2FA on all internal tools</li>
+        <li>Pen-test before Phase 2 launch</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDING STRATEGY -->
+<section>
+  <h2><span class="num">09</span>Funding Strategy</h2>
+  <p class="section-sub">Bootstrap as long as you can. Raise only when you have leverage. The order: founder savings → angel round → pre-seed → seed extension → Series A.</p>
+  <table class="tbl">
+    <thead>
+      <tr><th>Round</th><th>When</th><th>Amount</th><th>Use of funds</th><th>Valuation guidance</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Bootstrap</td><td>Month 0–18</td><td>$80–170k</td><td>MVP, first 50 customers</td><td>—</td></tr>
+      <tr><td>Angel / F&amp;F (optional)</td><td>Month 12–15</td><td>$150–300k</td><td>Extend runway, hire 1 dev</td><td>$3–5M post</td></tr>
+      <tr><td><strong>Pre-Seed</strong></td><td>Month 18–24</td><td>$750k–$1.5M</td><td>UAE office, 5 hires, 18 mo runway</td><td>$5–9M post</td></tr>
+      <tr><td>Seed Extension</td><td>Month 30–36</td><td>$2–4M</td><td>US sales build, integrations</td><td>$15–25M post</td></tr>
+      <tr><td>Series A</td><td>Year 4</td><td>$3–6M</td><td>Scale US + Europe entry</td><td>$30–50M post</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green" style="margin-top:18px;">
+    <strong>Realistic investor profile for Pre-Seed in MENA:</strong> Wamda Capital, BECO, Shorooq, 500 Global MENA, Hambro Perks, Plus VC, Class 5 Global, COTU Ventures. Target 4–6 lead conversations from a warm intro list of 30+. Expect 3–6 months from first meeting to wired funds.
+  </div>
+</section>
+
+<!-- RISKS -->
+<section>
+  <h2><span class="num">10</span>Top Risks &amp; Mitigations</h2>
+  <p class="section-sub">The honest list. Investors will ask about every one — have an answer ready.</p>
+
+  <div class="card">
+    <div class="risk-row">
+      <div class="risk-label">Channel sync reliability bugs</div>
+      <div>Double-bookings = customer churn within weeks. Single-handedly the #1 killer of vacation rental software.</div>
+      <div><span class="tag red">Critical</span> Build a sync test suite from Day 1. Pay $$$ for QA on this one feature.</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Single technical founder bus factor</div>
+      <div>If the CTO co-founder leaves, the company is dead in 6 weeks.</div>
+      <div><span class="tag orange">High</span> Document everything. Bring on contract dev by Month 4 to share knowledge.</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Underfunded sales motion in US</div>
+      <div>US CAC is $1,000+. If you enter without $1M+ runway you'll burn it on partial-funnel.</div>
+      <div><span class="tag orange">High</span> Don't enter US until Pre-Seed is closed.</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Lodgify clones the AI features</div>
+      <div>If we prove the wedge, incumbents copy in 6–12 months.</div>
+      <div><span class="tag">Medium</span> Compound the moat: data + integrations + brand + MENA payments.</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">UAE regulatory changes</div>
+      <div>Short-term rental rules in Dubai/Abu Dhabi/KSA are evolving — could help or hurt.</div>
+      <div><span class="tag">Medium</span> Hire a regulatory advisor in Phase 2 (~$10k/yr retainer).</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Founder burnout</div>
+      <div>2 people doing 5 jobs each for 18 months is the actual hardest part.</div>
+      <div><span class="tag orange">High</span> Take 1 day fully off per week. Hire your first VA at $30k MRR.</div>
+    </div>
+    <div class="risk-row">
+      <div class="risk-label">Currency &amp; payment friction</div>
+      <div>MENA customers in AED/SAR, US in USD, EU in EUR — multi-currency accounting is painful.</div>
+      <div><span class="tag">Medium</span> Use Wise Business + Stripe multi-currency. Hire a fractional CFO in Phase 2.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU NEED -->
+<section>
+  <h2><span class="num">11</span>What You Exactly Need — Checklist</h2>
+  <p class="section-sub">A practical packing list of people, tools, money, and decisions for each phase.</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h4>People (chronological)</h4>
+      <ul class="clean">
+        <li><strong>Month 0:</strong> 2 co-founders (you + CTO co-founder)</li>
+        <li><strong>Month 4:</strong> 1 contract developer ($3–6k/mo)</li>
+        <li><strong>Month 5:</strong> 1–2 commission-only sales reps (25% Y1 ACV)</li>
+        <li><strong>Month 9:</strong> 1 virtual assistant ($1–2k/mo, support + onboarding)</li>
+        <li><strong>Month 14:</strong> Fractional accountant ($500/mo)</li>
+        <li><strong>Month 18 (Phase 2):</strong> Senior eng + designer + sales + CS + growth</li>
+        <li><strong>Month 30:</strong> US Head of Sales</li>
+        <li><strong>Month 36:</strong> Fractional CFO + first US CS hires</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Tools &amp; SaaS (running stack)</h4>
+      <ul class="clean">
+        <li>GitHub Team, Linear, Notion, Figma</li>
+        <li>Vercel, Neon, Upstash, Cloudflare</li>
+        <li>Stripe + Tap + Wise Business</li>
+        <li>Twilio, WhatsApp Business, Resend</li>
+        <li>Anthropic API, PostHog, Sentry, BetterStack</li>
+        <li>HubSpot or Attio CRM (Phase 1.5+)</li>
+        <li>Vanta (SOC 2 from Month 6)</li>
+        <li>Slack + Loom for async team</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Money (cumulative)</h4>
+      <ul class="clean">
+        <li><strong>Phase 0:</strong> $3–7k (legal + setup)</li>
+        <li><strong>Phase 1:</strong> $40–80k (build + launch)</li>
+        <li><strong>Phase 1.5:</strong> $50–120k (scale to 100)</li>
+        <li><strong>Phase 2:</strong> $750k–$1.5M raised (Pre-Seed)</li>
+        <li><strong>Phase 3:</strong> $2–4M raised (Seed extension)</li>
+        <li><strong>Phase 4:</strong> $3–6M raised (Series A)</li>
+        <li><strong>Personal runway:</strong> 12–18 months savings per founder</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Decisions to make in Week 1</h4>
+      <ul class="clean">
+        <li>Final company name + domain</li>
+        <li>Delaware vs. UAE primary entity (recommended: Delaware + UAE sub)</li>
+        <li>Equity split between you and co-founder</li>
+        <li>Salary plan (when do founders start drawing?)</li>
+        <li>Where each person is legally based (tax implications)</li>
+        <li>Geography order — confirm MENA-first</li>
+        <li>Pricing model: per-property/mo vs. percentage-of-booking</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 90 DAY PLAN -->
+<section>
+  <h2><span class="num">12</span>The First 90 Days — Action Plan</h2>
+  <p class="section-sub">If you do only these 12 things in the next 3 months, Phase 1 stays on track.</p>
+  <div class="grid grid-3">
+    <div class="card">
+      <h4>Days 1–30</h4>
+      <ul class="clean">
+        <li>Incorporate + vesting docs signed</li>
+        <li>Domain + Google Workspace live</li>
+        <li>Brand identity + landing page online</li>
+        <li>Waitlist live (target 50 sign-ups)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Days 31–60</h4>
+      <ul class="clean">
+        <li>30 user interviews with MENA property owners</li>
+        <li>Website builder v0 (1 template, no calendar)</li>
+        <li>iCal sync prototype working</li>
+        <li>First WhatsApp AI flow demo</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Days 61–90</h4>
+      <ul class="clean">
+        <li>5 design partners signed (free + feedback)</li>
+        <li>Payment integration live</li>
+        <li>Pricing page + Stripe checkout</li>
+        <li>First 2 paid pilot conversions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout green" style="margin-top:24px;">
+    <strong>Definition of "Phase 1 on track":</strong> By Day 90 you should have at least 2 paying customers, 50 waitlist signups, a working end-to-end demo (website + calendar + AI message + payment), and a clear list of the next 30 features prioritized by customer interviews.
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section>
+  <h2><span class="num">13</span>The Honest Bottom Line</h2>
+  <div class="card dark">
+    <p style="color:#e2e8f0; font-size: 16px;">
+      Building a better Lodgify is possible — but it's a 5-year operation, not a 12-month sprint. The bootstrapped path to $1M ARR takes ~30 months and costs $150–250k of personal + raised capital. Reaching Lodgify-scale ($30M+ ARR) takes 5–7 years and $10–20M of total capital. You have two unfair advantages: domain knowledge from Walego, and the MENA wedge that incumbents won't take seriously until you're already winning.
+    </p>
+    <p style="color:#e2e8f0; font-size: 16px; margin-top: 12px;">
+      The biggest single decision is your <strong style="color:white;">geographic order</strong>. Start MENA, prove the wedge, then attack the US with revenue + case studies. The biggest single risk is <strong style="color:white;">channel sync reliability</strong> — invest in this from Day 1. The biggest single hire after the founders is your <strong style="color:white;">first sales rep in Phase 1.5</strong> — get this person right and Phase 2 fundraising becomes easy.
+    </p>
+    <p style="color:#e2e8f0; font-size: 16px; margin-top: 12px;">
+      Now go build.
+    </p>
+  </div>
+</section>
+
+<footer>
+  Walego 2.0 · Strategic Business Plan · Prepared May 2026 · All figures are midpoint estimates (±30% variance).
+</footer>
+
+</div>
+
+<script>
+  // Shared theme
+  const palette = {
+    brand: '#1e3a8a',
+    brand2: '#0ea5e9',
+    accent: '#f97316',
+    accent2: '#10b981',
+    gold: '#f59e0b',
+    purple: '#8b5cf6',
+    pink: '#ec4899',
+    gray: '#94a3b8',
+  };
+  Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  Chart.defaults.color = '#475569';
+  Chart.defaults.borderColor = '#e6e8ef';
+
+  // Market size chart
+  new Chart(document.getElementById('marketChart'), {
+    type: 'bar',
+    data: {
+      labels: ['2024','2025','2026','2027','2028','2029','2030'],
+      datasets: [{
+        label: 'Global STR SaaS market ($B)',
+        data: [1.5, 1.72, 1.96, 2.24, 2.55, 2.91, 3.32],
+        backgroundColor: ctx => {
+          const c = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300);
+          c.addColorStop(0, palette.brand2);
+          c.addColorStop(1, palette.brand);
+          return c;
+        },
+        borderRadius: 8,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { ticks: { callback: v => '$' + v + 'B' } } }
+    }
+  });
+
+  // Regional competition density
+  new Chart(document.getElementById('regionChart'), {
+    type: 'radar',
+    data: {
+      labels: ['US','Western EU','Eastern EU','MENA','LATAM','APAC','Africa'],
+      datasets: [{
+        label: 'Competitor density (0–10)',
+        data: [10, 9, 5, 3, 4, 6, 2],
+        backgroundColor: 'rgba(14,165,233,0.2)',
+        borderColor: palette.brand2,
+        pointBackgroundColor: palette.brand,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { r: { suggestedMin: 0, suggestedMax: 10 } }
+    }
+  });
+
+  // Burn chart
+  new Chart(document.getElementById('burnChart'), {
+    type: 'line',
+    data: {
+      labels: ['M1','M3','M6','M9','M12','M15','M18','M21','M24','M27','M30','M33','M36','M42','M48'],
+      datasets: [{
+        label: 'Monthly burn ($k)',
+        data: [4, 6, 8, 10, 9, 11, 13, 35, 42, 45, 48, 50, 55, 95, 140],
+        borderColor: palette.accent,
+        backgroundColor: 'rgba(249,115,22,0.15)',
+        fill: true,
+        tension: 0.35,
+        pointRadius: 4,
+        pointBackgroundColor: palette.accent,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { ticks: { callback: v => '$' + v + 'k' } } }
+    }
+  });
+
+  // Phase 1 monthly burn
+  new Chart(document.getElementById('phase1Burn'), {
+    type: 'bar',
+    data: {
+      labels: ['M1','M2','M3','M4','M5','M6','M7','M8','M9'],
+      datasets: [
+        { label: 'Infra + SaaS', data: [0.4,0.5,0.6,0.7,0.9,1.1,1.2,1.4,1.5], backgroundColor: palette.brand2, stack: 's' },
+        { label: 'API costs', data: [0.2,0.2,0.3,0.4,0.5,0.6,0.7,0.9,1.0], backgroundColor: palette.brand, stack: 's' },
+        { label: 'Marketing', data: [1,1.2,1.5,1.5,2,2.5,2.5,3,3], backgroundColor: palette.accent, stack: 's' },
+        { label: 'Contract dev', data: [0,0,0,3,4,4,5,5,5], backgroundColor: palette.accent2, stack: 's' },
+        { label: 'Legal/accounting', data: [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5], backgroundColor: palette.gray, stack: 's' },
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom' } },
+      scales: {
+        x: { stacked: true },
+        y: { stacked: true, ticks: { callback: v => '$' + v + 'k' } }
+      }
+    }
+  });
+
+  // Phase 2 pie
+  new Chart(document.getElementById('phase2Pie'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Salaries (5 hires)','Founder salaries','Office (DIC)','Infra & APIs','Marketing','Legal & ops','Travel'],
+      datasets: [{
+        data: [310, 100, 40, 40, 80, 20, 20],
+        backgroundColor: [palette.brand, palette.brand2, palette.accent2, palette.gold, palette.accent, palette.purple, palette.gray],
+        borderWidth: 2,
+        borderColor: '#fff',
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { boxWidth: 12 } },
+        tooltip: { callbacks: { label: c => c.label + ': $' + c.parsed + 'k' } }
+      }
+    }
+  });
+
+  // Customer chart
+  new Chart(document.getElementById('customerChart'), {
+    type: 'line',
+    data: {
+      labels: ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9','Q10','Q11','Q12','Q16','Q20'],
+      datasets: [{
+        label: 'Customers',
+        data: [0, 2, 10, 30, 60, 100, 160, 250, 380, 520, 700, 900, 2200, 4500],
+        borderColor: palette.brand,
+        backgroundColor: 'rgba(30,58,138,0.12)',
+        fill: true, tension: 0.35, pointRadius: 3,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { ticks: { callback: v => v.toLocaleString() } } }
+    }
+  });
+
+  // MRR chart
+  new Chart(document.getElementById('mrrChart'), {
+    type: 'line',
+    data: {
+      labels: ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9','Q10','Q11','Q12','Q16','Q20'],
+      datasets: [{
+        label: 'MRR (USD)',
+        data: [0, 200, 800, 2400, 5400, 9000, 16000, 27500, 43000, 60000, 84000, 112000, 290000, 720000],
+        borderColor: palette.accent,
+        backgroundColor: 'rgba(249,115,22,0.15)',
+        fill: true, tension: 0.35, pointRadius: 3,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' } } }
+    }
+  });
+
+  // Capital chart
+  new Chart(document.getElementById('capChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Y1','Y2','Y3','Y4','Y5'],
+      datasets: [
+        { label: 'Bootstrap', data: [150, 0, 0, 0, 0], backgroundColor: palette.gray, stack: 'a' },
+        { label: 'Pre-Seed', data: [0, 1100, 0, 0, 0], backgroundColor: palette.brand2, stack: 'a' },
+        { label: 'Seed Ext.', data: [0, 0, 3000, 0, 0], backgroundColor: palette.brand, stack: 'a' },
+        { label: 'Series A', data: [0, 0, 0, 4500, 0], backgroundColor: palette.accent, stack: 'a' },
+        { label: 'Series B (optional)', data: [0, 0, 0, 0, 8000], backgroundColor: palette.purple, stack: 'a' },
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom' } },
+      scales: {
+        x: { stacked: true },
+        y: { stacked: true, ticks: { callback: v => '$' + (v/1000).toFixed(1) + 'M' } }
+      }
+    }
+  });
+
+  // Headcount chart
+  new Chart(document.getElementById('headcountChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Y1','Y2','Y3','Y4','Y5'],
+      datasets: [{
+        label: 'Team size',
+        data: [3, 7, 16, 30, 45],
+        backgroundColor: ctx => {
+          const c = ctx.chart.ctx.createLinearGradient(0,0,0,260);
+          c.addColorStop(0, palette.accent2);
+          c.addColorStop(1, palette.brand);
+          return c;
+        },
+        borderRadius: 8,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+    }
+  });
+</script>
+
+</body>
+</html>
